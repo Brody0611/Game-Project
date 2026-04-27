@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://psrvy3fo3lj1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8tavf"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ctwpx"]
+material = SubResource("StandardMaterial3D_8tavf")
+size = Vector3(8, 1, 8)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_8tavf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8tavf"]
+size = Vector3(6, 1, 6)
+
+[node name="start_room" type="Node3D" unique_id=1996625039]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=999537889]
+mesh = SubResource("BoxMesh_ctwpx")
+
+[node name="meshes" type="Node3D" parent="." unique_id=102141711]
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="meshes" unique_id=1613512895]
+transform = Transform3D(1, 0, 0, 0, 6.728631, 0, 0, 0, 0.106375515, 0, 2.9785933, -3.6603603)
+mesh = SubResource("BoxMesh_ctwpx")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="meshes" unique_id=829785175]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CylinderMesh_8tavf")
+
+[node name="Doors" type="Node3D" parent="." unique_id=851642706]
+
+[node name="door_entrance" type="Marker3D" parent="Doors" unique_id=842742319]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="Bounds" type="Node3D" parent="." unique_id=2013902457]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bounds" unique_id=508184445]
+shape = SubResource("BoxShape3D_8tavf")
