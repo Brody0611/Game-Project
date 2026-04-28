@@ -5,12 +5,24 @@ albedo_color = Color(0, 0, 0, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_ctwpx"]
 material = SubResource("StandardMaterial3D_8tavf")
-size = Vector3(8, 1, 8)
+size = Vector3(16, 1, 16)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_8tavf"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_x2r7q"]
+size = Vector3(16, 1, 16)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jmwm0"]
+size = Vector3(16, 1, 16)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x2r7q"]
+albedo_color = Color(1, 0.27058825, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qjqdh"]
+material = SubResource("StandardMaterial3D_x2r7q")
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_8tavf"]
-size = Vector3(6, 1, 6)
+size = Vector3(14, 1, 14)
 
 [node name="start_room" type="Node3D" unique_id=1996625039]
 
@@ -27,10 +39,25 @@ mesh = SubResource("BoxMesh_ctwpx")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = SubResource("CylinderMesh_8tavf")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="meshes" unique_id=1540170762]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="meshes/StaticBody3D" unique_id=2140106935]
+shape = SubResource("BoxShape3D_x2r7q")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="meshes" unique_id=786293652]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.8459768, 0)
+mesh = SubResource("BoxMesh_jmwm0")
+
 [node name="Doors" type="Node3D" parent="." unique_id=851642706]
 
-[node name="door_entrance" type="Marker3D" parent="Doors" unique_id=842742319]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+[node name="door_north" type="Node3D" parent="Doors" unique_id=1072758359]
+
+[node name="Marker3D" type="Marker3D" parent="Doors/door_north" unique_id=453352335]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
+
+[node name="Wall" type="MeshInstance3D" parent="Doors/door_north" unique_id=1148124960]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 8)
+mesh = SubResource("BoxMesh_qjqdh")
 
 [node name="Bounds" type="Node3D" parent="." unique_id=2013902457]
 

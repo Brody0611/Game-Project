@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://b13djf1debkx1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rxqbw"]
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_lcb3j"]
+material = SubResource("StandardMaterial3D_rxqbw")
+size = Vector3(16, 1, 16)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8pp7a"]
+size = Vector3(16, 1, 16)
+
+[sub_resource type="BoxMesh" id="BoxMesh_mjetg"]
+size = Vector3(16, 1, 16)
+
+[sub_resource type="BoxMesh" id="BoxMesh_n4pmu"]
+size = Vector3(1, 1, 4.995)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_upj83"]
+albedo_color = Color(1, 0.27058825, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qi3pi"]
+material = SubResource("StandardMaterial3D_upj83")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rxqbw"]
+size = Vector3(14, 1, 14)
+
+[node name="main_room_1" type="Node3D" unique_id=1388265317]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=706746771]
+mesh = SubResource("BoxMesh_lcb3j")
+
+[node name="room_mesh" type="Node3D" parent="." unique_id=1729398237]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="room_mesh" unique_id=174018566]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="room_mesh/StaticBody3D" unique_id=909753916]
+shape = SubResource("BoxShape3D_8pp7a")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="room_mesh" unique_id=731428083]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.8459768, 0)
+mesh = SubResource("BoxMesh_mjetg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="room_mesh" unique_id=1680040901]
+transform = Transform3D(1, 0, 0, 0, 10.78, 0, 0, 0, 3.03199, 7.5, 4.415, -0.059159756)
+mesh = SubResource("BoxMesh_n4pmu")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="room_mesh" unique_id=1465816505]
+transform = Transform3D(1, 0, 0, 0, 10.78, 0, 0, 0, 0.6006619, 2.5585957, 4.415, -0.059159756)
+mesh = SubResource("BoxMesh_n4pmu")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="room_mesh" unique_id=764009705]
+transform = Transform3D(1, 0, 0, 0, 10.78, 0, 0, 0, 3.1411264, -2.8474398, 4.415, -0.21469688)
+mesh = SubResource("BoxMesh_n4pmu")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="room_mesh" unique_id=2033087463]
+transform = Transform3D(-4.371139e-08, 0, 1.465, 0, 10.78, 0, -1, 0, -6.403719e-08, 4.676, 4.415, 7.5)
+mesh = SubResource("BoxMesh_n4pmu")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="room_mesh" unique_id=1568885518]
+transform = Transform3D(-4.371139e-08, 0, 1.465, 0, 10.78, 0, -1, 0, -6.403719e-08, 4.676, 4.415, -7.5)
+mesh = SubResource("BoxMesh_n4pmu")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="room_mesh" unique_id=1524795376]
+transform = Transform3D(-4.371139e-08, 0, 1.465, 0, 10.78, 0, -1, 0, -6.403719e-08, -4.6655183, 4.415, 7.5)
+mesh = SubResource("BoxMesh_n4pmu")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="room_mesh" unique_id=167710871]
+transform = Transform3D(-4.371139e-08, 0, 1.465, 0, 10.78, 0, -1, 0, -6.403719e-08, -4.6655183, 4.415, -7.5)
+mesh = SubResource("BoxMesh_n4pmu")
+
+[node name="Doors" type="Node3D" parent="." unique_id=1655019234]
+
+[node name="door_north" type="Node3D" parent="Doors" unique_id=415674185]
+
+[node name="Marker3D" type="Marker3D" parent="Doors/door_north" unique_id=679338995]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
+
+[node name="Wall" type="MeshInstance3D" parent="Doors/door_north" unique_id=1347358902]
+transform = Transform3D(2, 0, 0, 0, 5.29, 0, 0, 0, 1, 0, 2, 8)
+mesh = SubResource("BoxMesh_qi3pi")
+
+[node name="door_south" type="Node3D" parent="Doors" unique_id=457612594]
+
+[node name="Marker3D" type="Marker3D" parent="Doors/door_south" unique_id=375744368]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, -8)
+
+[node name="Wall" type="MeshInstance3D" parent="Doors/door_south" unique_id=1254990624]
+transform = Transform3D(2, 0, 0, 0, 5.29, 0, 0, 0, 1, 0, 2, -8)
+mesh = SubResource("BoxMesh_qi3pi")
+
+[node name="Bounds" type="Node3D" parent="." unique_id=160223481]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bounds" unique_id=1187505995]
+shape = SubResource("BoxShape3D_rxqbw")

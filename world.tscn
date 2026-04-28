@@ -1,14 +1,19 @@
 [gd_scene format=3 uid="uid://583cycyk780f"]
 
 [ext_resource type="Script" uid="uid://cqagsk8ghh08a" path="res://generator.gd" id="1_tlwt5"]
-[ext_resource type="PackedScene" uid="uid://mpehgvhds6aa" path="res://start_room.tscn" id="2_aqk2v"]
-[ext_resource type="PackedScene" uid="uid://psrvy3fo3lj1" path="res://end_room.tscn" id="3_036b0"]
-[ext_resource type="PackedScene" uid="uid://dwj2x2dwqfu70" path="res://main_room_1.tscn" id="4_036b0"]
-[ext_resource type="PackedScene" uid="uid://b13djf1debkx1" path="res://branch_room_1.tscn" id="5_dwbse"]
+[ext_resource type="PackedScene" uid="uid://mpehgvhds6aa" path="res://Rooms/start_room.tscn" id="2_aqk2v"]
+[ext_resource type="PackedScene" uid="uid://psrvy3fo3lj1" path="res://Rooms/end_room.tscn" id="3_036b0"]
+[ext_resource type="PackedScene" uid="uid://dwj2x2dwqfu70" path="res://Rooms/main_room_1.tscn" id="4_036b0"]
+[ext_resource type="PackedScene" uid="uid://b13djf1debkx1" path="res://Rooms/branch_room_1.tscn" id="5_dwbse"]
+[ext_resource type="PackedScene" uid="uid://cftfhugf360w" path="res://Rooms/main_room_2.tscn" id="5_pkg7o"]
+[ext_resource type="PackedScene" uid="uid://dhdx2s3pksgax" path="res://Rooms/branch_room_2.tscn" id="6_dwbse"]
+[ext_resource type="PackedScene" uid="uid://bgclukm03gar1" path="res://Rooms/main_room_3.tscn" id="6_ioo17"]
+[ext_resource type="PackedScene" uid="uid://b57ixfg0w37na" path="res://Rooms/main_room_4.tscn" id="7_wse8f"]
+[ext_resource type="PackedScene" uid="uid://driudkjn07hu4" path="res://Rooms/branch_room_3.tscn" id="8_gbfbk"]
 
 [sub_resource type="Environment" id="Environment_036b0"]
 ambient_light_source = 3
-ambient_light_color = Color(0.16470589, 0.16470589, 0.5019608, 1)
+ambient_light_color = Color(0.5857643, 0.6375238, 0.9608603, 1)
 
 [node name="world" type="Node3D" unique_id=1817246388]
 
@@ -16,14 +21,16 @@ ambient_light_color = Color(0.16470589, 0.16470589, 0.5019608, 1)
 script = ExtResource("1_tlwt5")
 start_room = ExtResource("2_aqk2v")
 end_room = ExtResource("3_036b0")
-main_rooms = Array[PackedScene]([ExtResource("4_036b0")])
-branch_rooms = Array[PackedScene]([ExtResource("5_dwbse")])
-
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1701134638]
-transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 127, 106)
+main_rooms = Array[PackedScene]([ExtResource("4_036b0"), ExtResource("5_pkg7o"), ExtResource("6_ioo17"), ExtResource("7_wse8f")])
+branch_rooms = Array[PackedScene]([ExtResource("5_dwbse"), ExtResource("6_dwbse"), ExtResource("8_gbfbk")])
+main_length = 20
+branch_count = 30
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1768882446]
 environment = SubResource("Environment_036b0")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1553781799]
-transform = Transform3D(-3.090862e-08, 0.7071068, -0.7071068, 3.090862e-08, 0.7071068, 0.7071068, 1, 0, -4.3711392e-08, -49, 38, 0)
+transform = Transform3D(0.49999997, 0.61237246, -0.61237246, 3.090862e-08, 0.7071068, 0.7071068, 0.8660254, -0.3535534, 0.35355335, -49, 38, 46)
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="." unique_id=801054763]
+transform = Transform3D(-0.7766844, -0.44539943, 0.44539943, 0, 0.7071068, 0.7071068, -0.62988985, 0.54919887, -0.54919887, 60.84388, 38, -67.14917)
