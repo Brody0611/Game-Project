@@ -6,6 +6,10 @@ extends CharacterBody3D
 @export var walk_speed := 7.0
 @export var sprint_speed := 8.5
 
+const HEADBOB_MOVE_AMMOUNT = 0.06
+const HEADBOB_FREQUENCY = 2.4
+var headbob_time := 0.0
+
 var wish_dir := Vector3.ZERO
 
 func get_move_speed() -> float:
@@ -23,6 +27,14 @@ func _unhandled_input(event: InputEvent) -> void:
 			%Camera3D.rotate_x(-event.relative.y * look_sensitivity)
 			%Camera3D.rotation.x = clamp(%Camera3D.rotation.x, deg_to_rad(-90), deg_to_rad(90))
 
+func headbob_effect(delta):
+	headbob_time += delta * self.velocity.length()
+	%Camera3D.transform.origin = Vector3(
+		cos(headbob_time * HEADBOB_FREQUENCY * 0.5) * HEADBOB_MOVE_AMMOUNT,
+		sin(headbob_time * HEADBOB_FREQUENCY) * HEADBOB_MOVE_AMMOUNT,
+		0
+	)
+
 func _process(delta: float) -> void:
 	pass
 
@@ -33,12 +45,14 @@ func _handle_ground_physics(delta) -> void:
 	self.velocity.x = wish_dir.x * get_move_speed()
 	self.velocity.z = wish_dir.z * get_move_speed()
 
+	headbob_effect(delta)
+
 func _physics_process(delta: float) -> void:
 	var input_dir = Input.get_vector("left", "right", "up", "down").normalized()
 	wish_dir = self.global_transform.basis * Vector3(input_dir.x, 0., input_dir.y)
 	
 	if is_on_floor():
-		if Input.is_action_just_pressed("jump"):
+		if Input.is_action_just_pressed("jump") or (auto_bhop and Input.is_action_pressed("jump")):
 			self.velocity.y = jump_velocity
 		_handle_ground_physics(delta)
 	else:

@@ -1,16 +1,17 @@
 [gd_scene format=3 uid="uid://cftfhugf360w"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bkq7d"]
-albedo_color = Color(1, 0, 0, 1)
+[ext_resource type="Material" uid="uid://c876ftcoej68f" path="res://floormat.tres" id="1_age5i"]
+[ext_resource type="Material" uid="uid://c2gpbycsw3ta0" path="res://Wall.tres" id="2_iu54p"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_lcb3j"]
-material = SubResource("StandardMaterial3D_bkq7d")
+material = ExtResource("1_age5i")
 size = Vector3(16, 1, 16)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_upj83"]
 size = Vector3(16, 1, 16)
 
 [sub_resource type="BoxMesh" id="BoxMesh_jo0m6"]
+material = ExtResource("2_iu54p")
 size = Vector3(1, 1, 4.995)
 
 [sub_resource type="BoxMesh" id="BoxMesh_age5i"]

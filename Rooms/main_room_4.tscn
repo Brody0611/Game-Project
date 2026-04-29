@@ -1,10 +1,9 @@
 [gd_scene format=3 uid="uid://b57ixfg0w37na"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yans3"]
-albedo_color = Color(0, 0, 1, 1)
+[ext_resource type="Material" uid="uid://c876ftcoej68f" path="res://floormat.tres" id="1_dx7ww"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_lcb3j"]
-material = SubResource("StandardMaterial3D_yans3")
+material = ExtResource("1_dx7ww")
 size = Vector3(16, 1, 16)
 
 [sub_resource type="BoxMesh" id="BoxMesh_rxqbw"]

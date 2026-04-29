@@ -1,12 +1,20 @@
 [gd_scene format=3 uid="uid://mpehgvhds6aa"]
 
+[ext_resource type="Material" uid="uid://c876ftcoej68f" path="res://floormat.tres" id="1_fjpmj"]
 [ext_resource type="PackedScene" uid="uid://dnc8wy4iv1efs" path="res://player.tscn" id="1_y61b1"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_ctwpx"]
+material = ExtResource("1_fjpmj")
+size = Vector3(16, 1, 16)
+
+[sub_resource type="BoxMesh" id="BoxMesh_t516r"]
+size = Vector3(16, 1, 16)
+
+[sub_resource type="BoxMesh" id="BoxMesh_fjpmj"]
 size = Vector3(16, 1, 16)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_y61b1"]
-size = Vector3(14, 1, 14)
+size = Vector3(16, 1, 16)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gwls8"]
 
@@ -19,22 +27,22 @@ material = SubResource("StandardMaterial3D_gwls8")
 mesh = SubResource("BoxMesh_ctwpx")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1859920589]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.8459768, 0)
-mesh = SubResource("BoxMesh_ctwpx")
+transform = Transform3D(0.38270682, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.8459768, 0)
+mesh = SubResource("BoxMesh_t516r")
 
 [node name="room_mesh" type="Node3D" parent="." unique_id=1370664191]
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="room_mesh" unique_id=1918464201]
 transform = Transform3D(0.032727186, 0, 0, 0, 3.7551987, 0, 0, 0, 1, -2.4485095, 2.2177095, 0)
-mesh = SubResource("BoxMesh_ctwpx")
+mesh = SubResource("BoxMesh_fjpmj")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="room_mesh" unique_id=2024690352]
 transform = Transform3D(0.032727186, 0, 0, 0, 3.7551987, 0, 0, 0, 1, 2.485479, 2.2177095, 0)
-mesh = SubResource("BoxMesh_ctwpx")
+mesh = SubResource("BoxMesh_fjpmj")
 
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="room_mesh" unique_id=759973337]
 transform = Transform3D(-1.4424758e-09, 0, 0.615, 0, 3.755, 0, -0.033, 0, -2.6882503e-08, 0, 2.218, -4.0019474)
-mesh = SubResource("BoxMesh_ctwpx")
+mesh = SubResource("BoxMesh_fjpmj")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="room_mesh" unique_id=716921136]
 

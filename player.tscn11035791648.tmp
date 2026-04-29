@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://dnc8wy4iv1efs"]
 
 [ext_resource type="Script" uid="uid://bxptuhc6t65ih" path="res://player.gd" id="1_4flbx"]
-[ext_resource type="Texture2D" uid="uid://bu0n1uuok233s" path="res://cookie_2.jpg" id="2_onrkg"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4flbx"]
 
@@ -9,7 +8,11 @@
 
 [node name="player" type="CharacterBody3D" unique_id=1093883535]
 script = ExtResource("1_4flbx")
-jump_velocity = 3.5
+look_sensitivity = null
+jump_velocity = null
+auto_bhop = null
+walk_speed = null
+sprint_speed = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1671350136]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -24,17 +27,7 @@ mesh = SubResource("CapsuleMesh_sh265")
 
 [node name="Head" type="Node3D" parent="." unique_id=2049132555]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head" unique_id=1797532068]
 unique_name_in_owner = true
-
-[node name="SpotLight3D" type="SpotLight3D" parent="Head/Camera3D" unique_id=715634170]
-transform = Transform3D(1, 0, 0, 0, 0.9953962, 0.09584575, 0, -0.09584575, 0.9953962, 0, 0, -0.5)
-light_color = Color(0.8901961, 0.9254902, 0.8235294, 1)
-light_energy = 1.454
-light_volumetric_fog_energy = 16.0
-light_projector = ExtResource("2_onrkg")
-shadow_enabled = true
-spot_range = 9.0
-spot_angle = 57.22
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, 0)

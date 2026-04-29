@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://c876ftcoej68f"]
+
+[ext_resource type="Texture2D" uid="uid://hvg5i7cb14sg" path="res://GameProjectTextures/foorch.jpg" id="1_scm01"]
+
+[resource]
+albedo_color = Color(0.6814234, 0.6814235, 0.6814233, 1)
+albedo_texture = ExtResource("1_scm01")
+uv1_triplanar = true

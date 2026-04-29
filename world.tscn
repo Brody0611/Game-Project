@@ -9,28 +9,46 @@
 [ext_resource type="PackedScene" uid="uid://dhdx2s3pksgax" path="res://Rooms/branch_room_2.tscn" id="6_dwbse"]
 [ext_resource type="PackedScene" uid="uid://bgclukm03gar1" path="res://Rooms/main_room_3.tscn" id="6_ioo17"]
 [ext_resource type="PackedScene" uid="uid://b57ixfg0w37na" path="res://Rooms/main_room_4.tscn" id="7_wse8f"]
-[ext_resource type="PackedScene" uid="uid://driudkjn07hu4" path="res://Rooms/branch_room_3.tscn" id="8_gbfbk"]
 
-[sub_resource type="Environment" id="Environment_036b0"]
-ambient_light_source = 3
-ambient_light_color = Color(0.5857643, 0.6375238, 0.9608603, 1)
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ioo17"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_wse8f"]
+sky_material = SubResource("ProceduralSkyMaterial_ioo17")
+
+[sub_resource type="Environment" id="Environment_ic0uy"]
+background_mode = 2
+sky = SubResource("Sky_wse8f")
+ambient_light_sky_contribution = 0.45
+ssao_enabled = true
+glow_hdr_threshold = 2.04
+glow_hdr_scale = 1.89
+glow_hdr_luminance_cap = 12.45
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_ioo17"]
+dof_blur_far_enabled = true
+dof_blur_near_enabled = true
 
 [node name="world" type="Node3D" unique_id=1817246388]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=499647072]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1582635558]
+environment = SubResource("Environment_ic0uy")
 
 [node name="generator" type="Node3D" parent="." unique_id=2076048575]
 script = ExtResource("1_tlwt5")
 start_room = ExtResource("2_aqk2v")
 end_room = ExtResource("3_036b0")
 main_rooms = Array[PackedScene]([ExtResource("4_036b0"), ExtResource("5_pkg7o"), ExtResource("6_ioo17"), ExtResource("7_wse8f")])
-branch_rooms = Array[PackedScene]([ExtResource("5_dwbse"), ExtResource("6_dwbse"), ExtResource("8_gbfbk")])
-main_length = 20
-branch_count = 30
+branch_rooms = Array[PackedScene]([ExtResource("5_dwbse"), ExtResource("6_dwbse")])
+main_length = 15
+branch_count = 10
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1768882446]
-environment = SubResource("Environment_036b0")
+[node name="ReflectionProbe" type="ReflectionProbe" parent="." unique_id=444988912]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1553781799]
-transform = Transform3D(0.49999997, 0.61237246, -0.61237246, 3.090862e-08, 0.7071068, 0.7071068, 0.8660254, -0.3535534, 0.35355335, -49, 38, 46)
-
-[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="." unique_id=801054763]
-transform = Transform3D(-0.7766844, -0.44539943, 0.44539943, 0, 0.7071068, 0.7071068, -0.62988985, 0.54919887, -0.54919887, 60.84388, 38, -67.14917)
+[node name="LightmapGI" type="LightmapGI" parent="." unique_id=758117537]
+camera_attributes = SubResource("CameraAttributesPractical_ioo17")
