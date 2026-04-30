@@ -25,7 +25,10 @@ func _ready():
 
 	generate_main_path(start)
 	generate_branches()
-
+	await get_tree().create_timer(0.8).timeout
+	$"../NavigationRegion3D".bake_navigation_mesh()
+	
+	
 # ---------------- MAIN PATH ----------------
 
 func generate_main_path(current_room):
@@ -78,7 +81,7 @@ func attach_room(from_room, new_scene):
 
 func attach_room_to_door(door, scene):
 	var new_room = scene.instantiate()
-	add_child(new_room)
+	$"../NavigationRegion3D".add_child(new_room)
 
 	var new_doors = get_doors(new_room)
 

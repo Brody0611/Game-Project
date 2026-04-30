@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cpv3rmebyhb5e"]
+
+[ext_resource type="Script" uid="uid://biqgv4svtyuyw" path="res://enemy.gd" id="1_4gyqm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7k104"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_4gyqm"]
+material = SubResource("StandardMaterial3D_7k104")
+
+[node name="enemy" type="CharacterBody3D" unique_id=42562581 groups=["enemy"]]
+script = ExtResource("1_4gyqm")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=344773162]
+
+[node name="RayCast3D" type="RayCast3D" parent="." unique_id=485877733]
+target_position = Vector3(0, 0, -20)
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1539444263]
+
+[node name="Timer" type="Timer" parent="." unique_id=165093158]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=912357476]
+mesh = SubResource("PrismMesh_4gyqm")

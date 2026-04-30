@@ -6,6 +6,13 @@
 material = ExtResource("1_5ikp2")
 size = Vector3(16, 1, 16)
 
+[sub_resource type="NavigationMesh" id="NavigationMesh_5ikp2"]
+vertices = PackedVector3Array(-4.824356, 9, -7.331889, -1.3243561, 9, -7.331889, -7.824356, 9, -7.831889, -7.074356, 9, -1.8318892, -5.074356, 9, -1.8318892, -7.574356, 9, -1.3318892, 7.425644, 9, -7.081889, 7.425644, 9, -1.3318892, 7.925644, 9, -7.081889, 2.425644, 9, -7.081889, 2.425644, 9, -4.831889, 2.925644, 9, -7.331889, 7.925644, 9, -7.831889, 1.4256439, 9, -7.581889, 0.42564392, 1, -6.581889, 0.42564392, 1, -7.581889, -0.32435608, 1, -7.581889, -0.5743561, 1, -6.331889, 1.4256439, 1, -2.0818892, 1.4256439, 1, -4.081889, 1.4256439, 1, -6.331889, 2.425644, 1, -2.3318892, 2.425644, 1, -3.8318892, 1.4256439, 1, -1.3318892, -4.074356, 1, -6.331889, -4.074356, 1, -1.3318892, -6.324356, 1, -6.331889, -6.324356, 1, -2.0818892, -5.324356, 1, -2.0818892, -5.324356, 1, -6.331889, 6.425644, 1, 0.66811085, 7.675644, 1, 0.41811085, 7.675644, 1, -0.33188915, 6.425644, 1, -0.58188915, 3.675644, 1, 6.418111, 6.425644, 1, 6.418111, 3.675644, 1, -2.0818892, 3.675644, 1, -4.081889, 6.425644, 1, -6.331889, 3.675644, 1, -6.331889, -0.32435608, 1, 7.668111, 0.42564392, 1, 7.668111, 0.42564392, 1, 6.668111, -0.5743561, 1, 6.418111, -4.324356, 1, -0.83188915, -7.574356, 1, -0.33188915, -7.574356, 1, 0.41811085, -6.324356, 1, 0.66811085, 1.4256439, 1, 6.418111, -6.324356, 1, 6.418111, 2.675644, 9, 7.168111, 2.675644, 9, -1.3318892, 2.425644, 9, 7.168111, 7.925644, 9, 7.918111, 7.675644, 9, 1.4181108, 7.425644, 9, 7.168111, 1.4256439, 9, 7.418111, -7.324356, 9, 7.168111, -7.324356, 9, 1.4181108, -7.824356, 9, 7.168111, -7.824356, 9, 7.918111, -1.3243561, 9, 7.668111)
+polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(0, 4, 3), PackedInt32Array(3, 5, 0), PackedInt32Array(0, 5, 2), PackedInt32Array(8, 7, 6), PackedInt32Array(11, 10, 9), PackedInt32Array(8, 6, 12), PackedInt32Array(12, 6, 11), PackedInt32Array(12, 11, 13), PackedInt32Array(11, 9, 13), PackedInt32Array(15, 14, 16), PackedInt32Array(16, 14, 17), PackedInt32Array(17, 19, 18), PackedInt32Array(14, 20, 17), PackedInt32Array(17, 20, 19), PackedInt32Array(21, 18, 22), PackedInt32Array(22, 18, 19), PackedInt32Array(18, 23, 17), PackedInt32Array(17, 23, 24), PackedInt32Array(24, 23, 25), PackedInt32Array(29, 28, 26), PackedInt32Array(26, 28, 27), PackedInt32Array(31, 30, 32), PackedInt32Array(32, 30, 33), PackedInt32Array(35, 34, 30), PackedInt32Array(30, 34, 36), PackedInt32Array(22, 37, 21), PackedInt32Array(21, 37, 36), PackedInt32Array(36, 33, 30), PackedInt32Array(37, 39, 38), PackedInt32Array(36, 37, 33), PackedInt32Array(33, 37, 38), PackedInt32Array(41, 40, 42), PackedInt32Array(42, 40, 43), PackedInt32Array(44, 25, 23), PackedInt32Array(46, 45, 47), PackedInt32Array(47, 45, 44), PackedInt32Array(42, 43, 48), PackedInt32Array(48, 43, 23), PackedInt32Array(47, 44, 49), PackedInt32Array(49, 44, 43), PackedInt32Array(43, 44, 23), PackedInt32Array(52, 51, 50), PackedInt32Array(55, 54, 53), PackedInt32Array(56, 52, 50), PackedInt32Array(55, 53, 50), PackedInt32Array(50, 53, 56), PackedInt32Array(59, 58, 57), PackedInt32Array(59, 57, 60), PackedInt32Array(60, 57, 61)]
+geometry_parsed_geometry_type = 0
+geometry_source_geometry_mode = 1
+geometry_source_group_name = &"navmesh"
+
 [sub_resource type="BoxMesh" id="BoxMesh_rxqbw"]
 size = Vector3(1, 1, 4.995)
 
@@ -24,54 +31,55 @@ material = SubResource("StandardMaterial3D_8pp7a")
 [sub_resource type="BoxShape3D" id="BoxShape3D_rxqbw"]
 size = Vector3(14, 1, 14)
 
-[node name="main_room_1" type="Node3D" unique_id=1388265317]
+[node name="main_room_1" type="Node3D" unique_id=1388265317 groups=["room"]]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=706746771]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=706746771 groups=["navmesh"]]
 mesh = SubResource("BoxMesh_lcb3j")
 
-[node name="room_mesh" type="Node3D" parent="." unique_id=1729398237]
+[node name="room_mesh" type="NavigationRegion3D" parent="." unique_id=2079359418]
+navigation_mesh = SubResource("NavigationMesh_5ikp2")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="room_mesh" unique_id=1753934745]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="room_mesh" unique_id=1753934745 groups=["navmesh"]]
 transform = Transform3D(1, 0, 0, 0, 8.34, 0, 0, 0, 1.465, 7.5, 4.38, 4.6734695)
 mesh = SubResource("BoxMesh_rxqbw")
 
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="room_mesh" unique_id=1198353735]
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="room_mesh" unique_id=1198353735 groups=["navmesh"]]
 transform = Transform3D(1, 0, 0, 0, 8.34, 0, 0, 0, 1.465, 7.5, 4.38, -4.673052)
 mesh = SubResource("BoxMesh_rxqbw")
 
-[node name="MeshInstance3D5" type="MeshInstance3D" parent="room_mesh" unique_id=76891575]
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="room_mesh" unique_id=76891575 groups=["navmesh"]]
 transform = Transform3D(1, 0, 0, 0, 8.34, 0, 0, 0, 1.465, -7.5, 4.38, 4.6734695)
 mesh = SubResource("BoxMesh_rxqbw")
 
-[node name="MeshInstance3D6" type="MeshInstance3D" parent="room_mesh" unique_id=1308025807]
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="room_mesh" unique_id=1308025807 groups=["navmesh"]]
 transform = Transform3D(1, 0, 0, 0, 8.34, 0, 0, 0, 1.465, -7.5, 4.38, -4.673052)
 mesh = SubResource("BoxMesh_rxqbw")
 
-[node name="MeshInstance3D9" type="MeshInstance3D" parent="room_mesh" unique_id=56717418]
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="room_mesh" unique_id=56717418 groups=["navmesh"]]
 transform = Transform3D(1, 0, 0, 0, 8.34, 0, 0, 0, 0.62125677, 2.5428047, 4.38, -5.9046197)
 mesh = SubResource("BoxMesh_rxqbw")
 
-[node name="MeshInstance3D10" type="MeshInstance3D" parent="room_mesh" unique_id=1197904987]
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="room_mesh" unique_id=1197904987 groups=["navmesh"]]
 transform = Transform3D(1, 0, 0, 0, 8.34, 0, 0, 0, 1.8912494, 2.5428047, 4.38, 2.9265442)
 mesh = SubResource("BoxMesh_rxqbw")
 
-[node name="MeshInstance3D11" type="MeshInstance3D" parent="room_mesh" unique_id=1855688787]
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="room_mesh" unique_id=1855688787 groups=["navmesh"]]
 transform = Transform3D(2.5004654, 0, 0, 0, 8.34, 0, 0, 0, 1.1698338, -6.054483, 4.38, -4.4698825)
 mesh = SubResource("BoxMesh_rxqbw")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="room_mesh" unique_id=678711331]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="room_mesh" unique_id=678711331 groups=["navmesh"]]
 transform = Transform3D(-4.371139e-08, 0, 1.465, 0, 8.34, 0, -1, 0, -6.403719e-08, 4.676, 4.38, 7.5)
 mesh = SubResource("BoxMesh_rxqbw")
 
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="room_mesh" unique_id=361437349]
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="room_mesh" unique_id=361437349 groups=["navmesh"]]
 transform = Transform3D(-4.371139e-08, 0, 1.465, 0, 8.34, 0, -1, 0, -6.403719e-08, 4.676, 4.38, -7.5)
 mesh = SubResource("BoxMesh_rxqbw")
 
-[node name="MeshInstance3D7" type="MeshInstance3D" parent="room_mesh" unique_id=1954214755]
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="room_mesh" unique_id=1954214755 groups=["navmesh"]]
 transform = Transform3D(-4.371139e-08, 0, 1.465, 0, 8.34, 0, -1, 0, -6.403719e-08, -4.6655183, 4.38, 7.5)
 mesh = SubResource("BoxMesh_rxqbw")
 
-[node name="MeshInstance3D8" type="MeshInstance3D" parent="room_mesh" unique_id=923965152]
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="room_mesh" unique_id=923965152 groups=["navmesh"]]
 transform = Transform3D(-4.371139e-08, 0, 1.465, 0, 8.34, 0, -1, 0, -6.403719e-08, -4.6655183, 4.38, -7.5)
 mesh = SubResource("BoxMesh_rxqbw")
 
@@ -128,3 +136,11 @@ mesh = SubResource("BoxMesh_8pp7a")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Bounds" unique_id=1187505995]
 shape = SubResource("BoxShape3D_rxqbw")
+
+[node name="PatrolPoints" type="Node3D" parent="." unique_id=1744391425]
+
+[node name="Marker3D" type="Marker3D" parent="PatrolPoints" unique_id=1581720762 groups=["patrol_point"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0804496, 0.8255944, 4.9983606)
+
+[node name="Marker3D2" type="Marker3D" parent="PatrolPoints" unique_id=7813453 groups=["patrol_point"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.0653443, 0.8255944, 2.780305)

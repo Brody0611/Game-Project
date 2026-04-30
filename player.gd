@@ -35,9 +35,6 @@ func headbob_effect(delta):
 		0
 	)
 
-func _process(delta: float) -> void:
-	pass
-
 func _handle_air_physics(delta) -> void:
 	self.velocity.y -= ProjectSettings.get_setting("physics/3d/default_gravity") * delta
 
@@ -59,3 +56,15 @@ func _physics_process(delta: float) -> void:
 		_handle_air_physics(delta)
 	
 	move_and_slide()
+
+func emit_sound(pos: Vector3, loudness: float):
+	var enemies = get_tree().get_nodes_in_group("enemy")
+	
+	for e in enemies:
+		if e.has_method("hear_sound"):
+			e.hear_sound(pos, loudness)
+
+func _input(event):
+	if event.is_action_pressed("ui_accept"): # usually SPACE or ENTER
+		print("Sound emitted!")
+		emit_sound(global_position, 10.0)

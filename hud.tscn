@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cbbqxxumms30f"]
+
+[ext_resource type="Material" uid="uid://c876ftcoej68f" path="res://floormat.tres" id="1_37p78"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_64ctp"]
+material = ExtResource("1_37p78")
+size = Vector3(16, 1, 16)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8sq4i"]
+size = Vector3(16, 1, 16)
+
+[node name="Hud" type="Node3D" unique_id=1254964967]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1040177564]
+mesh = SubResource("BoxMesh_64ctp")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=259068063]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1538861105]
+shape = SubResource("BoxShape3D_8sq4i")
