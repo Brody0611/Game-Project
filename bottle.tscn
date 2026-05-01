@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bqhwihf7ps4jq"]
+
+[ext_resource type="Script" uid="uid://ucpc882y3hlv" path="res://bottle.gd" id="1_6k8ux"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_xiyir"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_skn5d"]
+
+[node name="Bottle" type="RigidBody3D" unique_id=1362961105]
+script = ExtResource("1_6k8ux")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1558214180]
+shape = SubResource("SphereShape3D_xiyir")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=890976699]
+mesh = SubResource("SphereMesh_skn5d")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

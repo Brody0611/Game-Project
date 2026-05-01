@@ -2,7 +2,9 @@ extends CharacterBody3D
 
 enum State {
 	PATROL,
-	SEARCH
+	SEARCH,
+	CHASE,
+	STAGGER
 }
 
 @export var max_rooms := 3
@@ -198,3 +200,22 @@ func gather_local_patrol_points():
 	
 	print("Using patrol points:", patrol_points.size())
 	
+func hear_sound(pos: Vector3, loudness: float):
+	var dist = global_position.distance_to(pos)
+	
+	if dist > loudness:
+		return
+	
+	# ❗ IGNORE if already chasing or seeing player
+	if current_state == State.CHASE:
+		return
+	
+	#if can_see_player():
+	#	return
+	
+	start_search(pos)
+	
+func stagger():
+	current_state = State.STAGGER
+	var stagger_timer = 1.5
+	velocity = Vector3.ZERO

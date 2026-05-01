@@ -155,5 +155,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.814373, 0.8255944, 5.85372
 
 [node name="BottleSpawns" type="Node3D" parent="." unique_id=1366992433]
 
-[node name="Marker3D" type="Marker3D" parent="BottleSpawns" unique_id=2032418840]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.605, 3)
+[node name="Marker3D" type="Marker3D" parent="BottleSpawns" unique_id=2032418840 groups=["bottle_spawn"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1.0873988, 3)

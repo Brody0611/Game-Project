@@ -5,6 +5,8 @@ extends Node3D
 @export var main_rooms: Array[PackedScene]
 @export var branch_rooms: Array[PackedScene]
 
+@export var bottle_scene: PackedScene
+
 @export var main_length := 6
 @export var branch_count := 4
 
@@ -27,6 +29,9 @@ func _ready():
 	generate_branches()
 	await get_tree().create_timer(0.8).timeout
 	$"../NavigationRegion3D".bake_navigation_mesh()
+	
+	spawn_bottles()
+	debug_spawn_points()
 	
 	
 # ---------------- MAIN PATH ----------------
@@ -187,3 +192,31 @@ func get_random_room(pool: Array[PackedScene], last_scene: PackedScene) -> Packe
 		return pool.pick_random()
 
 	return valid_rooms.pick_random()
+
+func spawn_bottles():
+	var points = get_tree().get_nodes_in_group("bottle_spawn")
+	
+	print("Bottle spawn points found:", points.size())
+	
+	var spawned := 0
+	
+	for p in points:
+		if randf() < 0.6:
+			var bottle = bottle_scene.instantiate()
+			add_child(bottle)
+			bottle.global_position = p.global_position
+			
+			spawned += 1
+	
+	print("Bottles spawned:", spawned)
+
+func debug_spawn_points():
+	var points = get_tree().get_nodes_in_group("bottle_spawn")
+	
+	for p in points:
+		var mesh = MeshInstance3D.new()
+		mesh.mesh = SphereMesh.new()
+		mesh.scale = Vector3(0.2, 0.2, 0.2)
+		mesh.global_position = p.global_position
+		
+		add_child(mesh)

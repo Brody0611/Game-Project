@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dhdx2s3pksgax" path="res://Rooms/branch_room_2.tscn" id="6_dwbse"]
 [ext_resource type="PackedScene" uid="uid://bgclukm03gar1" path="res://Rooms/main_room_3.tscn" id="6_ioo17"]
 [ext_resource type="PackedScene" uid="uid://b57ixfg0w37na" path="res://Rooms/main_room_4.tscn" id="7_wse8f"]
+[ext_resource type="PackedScene" uid="uid://bqhwihf7ps4jq" path="res://bottle.tscn" id="10_ic0uy"]
 [ext_resource type="PackedScene" uid="uid://dnc8wy4iv1efs" path="res://player.tscn" id="10_wse8f"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ioo17"]
@@ -51,10 +52,15 @@ start_room = ExtResource("2_aqk2v")
 end_room = ExtResource("3_036b0")
 main_rooms = Array[PackedScene]([ExtResource("4_036b0"), ExtResource("5_pkg7o"), ExtResource("6_ioo17"), ExtResource("7_wse8f")])
 branch_rooms = Array[PackedScene]([ExtResource("5_dwbse"), ExtResource("6_dwbse")])
+bottle_scene = ExtResource("10_ic0uy")
 main_length = 20
 branch_count = 15
 
 [node name="player" parent="." unique_id=1093883535 instance=ExtResource("10_wse8f")]
+look_sensitivity = null
+auto_bhop = null
+walk_speed = null
+sprint_speed = null
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=257635433]
 navigation_mesh = SubResource("NavigationMesh_gbfbk")

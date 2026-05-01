@@ -10,6 +10,7 @@ const HEADBOB_MOVE_AMMOUNT = 0.06
 const HEADBOB_FREQUENCY = 2.4
 var headbob_time := 0.0
 
+var held_bottle: RigidBody3D = null
 var wish_dir := Vector3.ZERO
 
 func get_move_speed() -> float:
@@ -68,3 +69,48 @@ func _input(event):
 	if event.is_action_pressed("ui_accept"): # usually SPACE or ENTER
 		print("Sound emitted!")
 		emit_sound(global_position, 10.0)
+	
+		if event.is_action_pressed("interact"):
+			try_pickup()
+		
+		if event.is_action_pressed("attack"):
+			throw_bottle()
+
+func try_pickup():
+	var space = get_world_3d().direct_space_state
+	
+	var query = PhysicsRayQueryParameters3D.create(
+		global_position,
+		global_position + -transform.basis.z * 3.0
+	)
+	
+	var result = space.intersect_ray(query)
+	
+	if result and result.collider is RigidBody3D:
+		var body = result.collider
+		
+		if body.name.contains("Bottle"):
+			held_bottle = body
+			body.freeze = true
+			
+			body.get_parent().remove_child(body)
+			add_child(body)
+			
+			body.transform.origin = Vector3(0, 1.5, -1)
+
+func throw_bottle():
+	if held_bottle == null:
+		return
+	
+	var bottle = held_bottle
+	held_bottle = null
+	
+	remove_child(bottle)
+	get_parent().add_child(bottle)
+	
+	bottle.global_position = global_position + -transform.basis.z * 1.5
+	bottle.freeze = false
+	
+	var force = -transform.basis.z * 15.0
+	bottle.apply_impulse(Vector3.ZERO, force)
+	
