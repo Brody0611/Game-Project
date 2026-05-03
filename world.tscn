@@ -1,14 +1,12 @@
 [gd_scene format=3 uid="uid://583cycyk780f"]
 
-[ext_resource type="Script" uid="uid://cqagsk8ghh08a" path="res://generator.gd" id="1_tlwt5"]
+[ext_resource type="Script" uid="uid://cqagsk8ghh08a" path="res://Scripts/generator.gd" id="1_tlwt5"]
 [ext_resource type="PackedScene" uid="uid://mpehgvhds6aa" path="res://Rooms/start_room.tscn" id="2_aqk2v"]
 [ext_resource type="PackedScene" uid="uid://psrvy3fo3lj1" path="res://Rooms/end_room.tscn" id="3_036b0"]
-[ext_resource type="PackedScene" uid="uid://dwj2x2dwqfu70" path="res://Rooms/main_room_1.tscn" id="4_036b0"]
 [ext_resource type="PackedScene" uid="uid://b13djf1debkx1" path="res://Rooms/branch_room_1.tscn" id="5_dwbse"]
 [ext_resource type="PackedScene" uid="uid://cftfhugf360w" path="res://Rooms/main_room_2.tscn" id="5_pkg7o"]
 [ext_resource type="PackedScene" uid="uid://dhdx2s3pksgax" path="res://Rooms/branch_room_2.tscn" id="6_dwbse"]
-[ext_resource type="PackedScene" uid="uid://bgclukm03gar1" path="res://Rooms/main_room_3.tscn" id="6_ioo17"]
-[ext_resource type="PackedScene" uid="uid://b57ixfg0w37na" path="res://Rooms/main_room_4.tscn" id="7_wse8f"]
+[ext_resource type="PackedScene" uid="uid://dm8kaelfm24q7" path="res://Rooms/main_room_5.tscn" id="8_k3n1d"]
 [ext_resource type="PackedScene" uid="uid://bqhwihf7ps4jq" path="res://bottle.tscn" id="10_ic0uy"]
 [ext_resource type="PackedScene" uid="uid://dnc8wy4iv1efs" path="res://player.tscn" id="10_wse8f"]
 
@@ -28,8 +26,6 @@ glow_enabled = true
 glow_hdr_threshold = 2.04
 glow_hdr_scale = 1.89
 glow_hdr_luminance_cap = 12.45
-fog_enabled = true
-fog_light_color = Color(0, 0, 0, 1)
 fog_height = 93.09
 fog_depth_begin = 0.0
 fog_depth_end = 50.0
@@ -40,7 +36,7 @@ geometry_parsed_geometry_type = 0
 [node name="world" type="Node3D" unique_id=1817246388]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=499647072]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+transform = Transform3D(0.5849011, -0.7024373, 0.40555224, 2.7805946e-08, 0.49999994, 0.86602545, -0.81110466, -0.5065392, 0.2924505, 17.01496, 10.933898, 19.75841)
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1582635558]
@@ -50,17 +46,14 @@ environment = SubResource("Environment_ic0uy")
 script = ExtResource("1_tlwt5")
 start_room = ExtResource("2_aqk2v")
 end_room = ExtResource("3_036b0")
-main_rooms = Array[PackedScene]([ExtResource("4_036b0"), ExtResource("5_pkg7o"), ExtResource("6_ioo17"), ExtResource("7_wse8f")])
+main_rooms = Array[PackedScene]([ExtResource("8_k3n1d"), ExtResource("5_pkg7o")])
 branch_rooms = Array[PackedScene]([ExtResource("5_dwbse"), ExtResource("6_dwbse")])
 bottle_scene = ExtResource("10_ic0uy")
-main_length = 20
-branch_count = 15
+main_length = 2
+branch_count = 1
 
 [node name="player" parent="." unique_id=1093883535 instance=ExtResource("10_wse8f")]
-look_sensitivity = null
-auto_bhop = null
-walk_speed = null
-sprint_speed = null
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, -2.9859738)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=257635433]
 navigation_mesh = SubResource("NavigationMesh_gbfbk")

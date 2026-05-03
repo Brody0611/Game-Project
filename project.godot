@@ -24,6 +24,7 @@ patrol_point=""
 nav_region=""
 room=""
 bottle_spawn=""
+bottle=""
 
 [input]
 

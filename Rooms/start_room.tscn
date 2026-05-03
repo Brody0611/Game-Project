@@ -1,6 +1,12 @@
 [gd_scene format=3 uid="uid://mpehgvhds6aa"]
 
 [ext_resource type="Material" uid="uid://c876ftcoej68f" path="res://floormat.tres" id="1_fjpmj"]
+[ext_resource type="Script" uid="uid://wlycgsiuqxns" path="res://Rooms/start_room.gd" id="1_t516r"]
+[ext_resource type="PackedScene" uid="uid://dm17l3530cicb" path="res://elevator.tscn" id="2_fjpmj"]
+[ext_resource type="Texture2D" uid="uid://dt4y42pile2ck" path="res://GameProjectTextures/brick.jpg" id="3_0m72j"]
+[ext_resource type="Texture2D" uid="uid://dqr368phwctgd" path="res://GameProjectTextures/concrete.jpg" id="3_lw5f1"]
+[ext_resource type="Texture2D" uid="uid://3biwtj2k442q" path="res://GameProjectTextures/RedxBeige.jpg" id="5_u4ie7"]
+[ext_resource type="Texture2D" uid="uid://dknwhk4ihqlkf" path="res://GameProjectTextures/authorisedperon.jpg" id="7_tt80s"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_3n6nl"]
 vertices = PackedVector3Array(-5.5, 1, -4.75, -3.25, 1, -5, -3.25, 1, -7.5, -7.5, 1, -7.5, -7.5, 1, 7.5, -3.25, 1, 7.5, -5.25, 1, -3, -3.25, 1, -3, -1.5, 1, -7.5, -1.5, 1, -5, 1.5, 1, -5, 1.5, 1, -7.5, 3.25, 1, -7.5, 3.25, 1, -5, 5.5, 1, -4.75, 7.5, 1, -7.5, 5.25, 1, -3, 3.25, 1, 7.5, 7.5, 1, 7.5, 3.25, 1, -3, -1.5, 1, 9, 1.75, 1, 9, 1.5, 1, -3, -1.5, 1, -3)
@@ -13,13 +19,40 @@ geometry_source_group_name = &"navmesh"
 material = ExtResource("1_fjpmj")
 size = Vector3(16, 1, 16)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u4ie7"]
+albedo_texture = ExtResource("3_lw5f1")
+uv1_scale = Vector3(0.41, 1, 1.385)
+uv1_triplanar = true
+
 [sub_resource type="BoxMesh" id="BoxMesh_t516r"]
+material = SubResource("StandardMaterial3D_u4ie7")
 size = Vector3(16, 1, 16)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tt80s"]
+albedo_texture = ExtResource("3_0m72j")
+uv1_scale = Vector3(3.425, 4.365, 0.67)
+uv1_triplanar = true
+
 [sub_resource type="BoxMesh" id="BoxMesh_fjpmj"]
+material = SubResource("StandardMaterial3D_tt80s")
 size = Vector3(16, 1, 16)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_y61b1"]
+size = Vector3(16, 1, 16)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lw5f1"]
+albedo_texture = ExtResource("3_0m72j")
+uv1_scale = Vector3(7.495, -12.28, 8.901)
+
+[sub_resource type="BoxMesh" id="BoxMesh_u4ie7"]
+material = SubResource("StandardMaterial3D_lw5f1")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1v7i0"]
+albedo_texture = ExtResource("5_u4ie7")
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_s6nev"]
+material = SubResource("StandardMaterial3D_1v7i0")
 size = Vector3(16, 1, 16)
 
 [sub_resource type="BoxMesh" id="BoxMesh_0m72j"]
@@ -31,7 +64,17 @@ size = Vector3(16, 1, 16)
 [sub_resource type="BoxMesh" id="BoxMesh_y61b1"]
 material = SubResource("StandardMaterial3D_gwls8")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3s7td"]
+albedo_texture = ExtResource("3_0m72j")
+uv1_scale = Vector3(1.875, 6.59, 5.795)
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_tt80s"]
+material = SubResource("StandardMaterial3D_3s7td")
+size = Vector3(1, 1, 4.995)
+
 [node name="start_room" type="Node3D" unique_id=1996625039]
+script = ExtResource("1_t516r")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=1036243881]
 navigation_mesh = SubResource("NavigationMesh_3n6nl")
@@ -40,21 +83,21 @@ navigation_mesh = SubResource("NavigationMesh_3n6nl")
 mesh = SubResource("BoxMesh_ctwpx")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="NavigationRegion3D" unique_id=1859920589]
-transform = Transform3D(0.38270682, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.8459768, 0)
+transform = Transform3D(0.383, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 4.178138, 0)
 mesh = SubResource("BoxMesh_t516r")
 
 [node name="room_mesh" type="Node3D" parent="NavigationRegion3D" unique_id=1370664191]
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="NavigationRegion3D/room_mesh" unique_id=1918464201 groups=["navmesh"]]
-transform = Transform3D(0.032727186, 0, 0, 0, 3.7551987, 0, 0, 0, 1, -2.4485095, 2.2177095, 0)
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="NavigationRegion3D/room_mesh" unique_id=1476531289 groups=["navmesh"]]
+transform = Transform3D(-7.8680495e-10, 0, 0.31, 0, 3.755, 0, -0.018, 0, -1.35505305e-08, 0.151088, 5.120664, 7.7324476)
 mesh = SubResource("BoxMesh_fjpmj")
 
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="NavigationRegion3D/room_mesh" unique_id=2024690352 groups=["navmesh"]]
-transform = Transform3D(0.032727186, 0, 0, 0, 3.7551987, 0, 0, 0, 1, 2.485479, 2.2177095, 0)
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="NavigationRegion3D/room_mesh" unique_id=1673668153 groups=["navmesh"]]
+transform = Transform3D(0.033, 0, 0, 0, 3.755, 0, 0, 0, 0.49, 2.485479, 2.2177095, 4.084192)
 mesh = SubResource("BoxMesh_fjpmj")
 
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="NavigationRegion3D/room_mesh" unique_id=759973337 groups=["navmesh"]]
-transform = Transform3D(-1.4424758e-09, 0, 0.615, 0, 3.755, 0, -0.033, 0, -2.6882503e-08, 0, 2.218, -4.0019474)
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="NavigationRegion3D/room_mesh" unique_id=1527688395 groups=["navmesh"]]
+transform = Transform3D(0.033, 0, 0, 0, 3.755, 0, 0, 0, 0.49, -2.2627823, 2.2177095, 4.084192)
 mesh = SubResource("BoxMesh_fjpmj")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/room_mesh" unique_id=716921136]
@@ -62,8 +105,20 @@ mesh = SubResource("BoxMesh_fjpmj")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/room_mesh/StaticBody3D" unique_id=1382151846]
 shape = SubResource("BoxShape3D_y61b1")
 
+[node name="MeshInstance3D31" type="MeshInstance3D" parent="NavigationRegion3D/room_mesh" unique_id=1242461960]
+transform = Transform3D(3.2, 0, 0, 0, 5.051828, 0, 0, 0, 1.12, 3.4724603, 2.718752, 0.48159766)
+mesh = SubResource("BoxMesh_u4ie7")
+
+[node name="MeshInstance3D32" type="MeshInstance3D" parent="NavigationRegion3D/room_mesh" unique_id=769527489]
+transform = Transform3D(3.2, 0, 0, 0, 5.051828, 0, 0, 0, 1.12, -3.4041274, 2.718752, 0.48159766)
+mesh = SubResource("BoxMesh_u4ie7")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="NavigationRegion3D/room_mesh" unique_id=1890864642 groups=["navmesh"]]
+transform = Transform3D(-7.8680495e-10, 0, 0.31, 0, 0.17, 0, -0.018, 0, -1.35505305e-08, 0.151, 3.308, 7.678)
+mesh = SubResource("BoxMesh_s6nev")
+
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="NavigationRegion3D" unique_id=757727251 groups=["navmesh"]]
-transform = Transform3D(-4.8104316e-09, 0, 0.2640217, 0, 1, 0, -0.110049844, 0, -1.1540755e-08, 0.11470342, 0, 8.700011)
+transform = Transform3D(-4.8104316e-09, 0, 0.2640217, 0, 1, 0, -0.110049844, 0, -1.1540755e-08, 0.11470342, -0.030146599, 8.700011)
 mesh = SubResource("BoxMesh_0m72j")
 
 [node name="Doors" type="Node3D" parent="." unique_id=851642706]
@@ -81,3 +136,19 @@ mesh = SubResource("BoxMesh_y61b1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Bounds" unique_id=696794346]
 shape = SubResource("BoxShape3D_y61b1")
+
+[node name="Elevator" parent="." unique_id=1324549586 instance=ExtResource("2_fjpmj")]
+transform = Transform3D(1.665, 0, 0, 0, 1.665, 0, 0, 0, 1.665, 0.849, 2.065, 0)
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=297206136]
+transform = Transform3D(1.485, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.7583244, 7.5566616)
+modulate = Color(0.29803923, 0.29803923, 0.29803923, 1)
+texture = ExtResource("7_tt80s")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Sprite3D" unique_id=1579371492]
+transform = Transform3D(-6.077992e-09, 0, 1.4649999, 0, 5.0049977, 0, -0.13904822, 0, -6.4037145e-08, 4.325, -1.23, 0.372)
+mesh = SubResource("BoxMesh_tt80s")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="Sprite3D" unique_id=617821804]
+transform = Transform3D(-6.077992e-09, 0, 1.4649999, 0, 5.0049977, 0, -0.13904822, 0, -6.4037145e-08, -4.348, -1.23, 0.372)
+mesh = SubResource("BoxMesh_tt80s")

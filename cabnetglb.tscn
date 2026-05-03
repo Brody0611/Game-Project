@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://cjwv4srqcc42l"]
+
+[ext_resource type="PackedScene" uid="uid://bxx0m8hon3i2s" path="res://cabnetglb.glb" id="1_pyyvp"]
+
+[node name="cabnetglb" unique_id=1828955712 instance=ExtResource("1_pyyvp")]

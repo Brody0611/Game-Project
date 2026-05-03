@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="BottleItem" format=3 uid="uid://c5afg1vaxhh2q"]
+
+[ext_resource type="Script" uid="uid://ciotb3d2magny" path="res://Scripts/BottleItem.gd" id="1_bpeev"]
+[ext_resource type="PackedScene" uid="uid://bqhwihf7ps4jq" path="res://bottle.tscn" id="1_onnd1"]
+
+[resource]
+script = ExtResource("1_bpeev")
+item_name = "Bottle"
+scene = ExtResource("1_onnd1")
+metadata/_custom_type_script = "uid://ciotb3d2magny"

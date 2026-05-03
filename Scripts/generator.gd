@@ -33,7 +33,6 @@ func _ready():
 	spawn_bottles()
 	debug_spawn_points()
 	
-	
 # ---------------- MAIN PATH ----------------
 
 func generate_main_path(current_room):
