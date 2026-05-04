@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cqagsk8ghh08a" path="res://Scripts/generator.gd" id="1_tlwt5"]
 [ext_resource type="PackedScene" uid="uid://mpehgvhds6aa" path="res://Rooms/start_room.tscn" id="2_aqk2v"]
 [ext_resource type="PackedScene" uid="uid://psrvy3fo3lj1" path="res://Rooms/end_room.tscn" id="3_036b0"]
+[ext_resource type="PackedScene" uid="uid://dwj2x2dwqfu70" path="res://Rooms/main_room_1.tscn" id="4_036b0"]
 [ext_resource type="PackedScene" uid="uid://b13djf1debkx1" path="res://Rooms/branch_room_1.tscn" id="5_dwbse"]
 [ext_resource type="PackedScene" uid="uid://cftfhugf360w" path="res://Rooms/main_room_2.tscn" id="5_pkg7o"]
 [ext_resource type="PackedScene" uid="uid://dhdx2s3pksgax" path="res://Rooms/branch_room_2.tscn" id="6_dwbse"]
@@ -46,10 +47,10 @@ environment = SubResource("Environment_ic0uy")
 script = ExtResource("1_tlwt5")
 start_room = ExtResource("2_aqk2v")
 end_room = ExtResource("3_036b0")
-main_rooms = Array[PackedScene]([ExtResource("8_k3n1d"), ExtResource("5_pkg7o")])
+main_rooms = Array[PackedScene]([ExtResource("8_k3n1d"), ExtResource("5_pkg7o"), ExtResource("4_036b0")])
 branch_rooms = Array[PackedScene]([ExtResource("5_dwbse"), ExtResource("6_dwbse")])
 bottle_scene = ExtResource("10_ic0uy")
-main_length = 2
+main_length = 3
 branch_count = 1
 
 [node name="player" parent="." unique_id=1093883535 instance=ExtResource("10_wse8f")]

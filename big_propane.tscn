@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dukgejm0ov301" path="res://GameProjectTextures/propanetext.jpg" id="3_wpkl3"]
 [ext_resource type="Texture2D" uid="uid://dnpu823cwlbdh" path="res://GameProjectTextures/yellow.jpg" id="4_eegsx"]
 [ext_resource type="Texture2D" uid="uid://bb851qtneav3r" path="res://GameProjectTextures/machine.jpg" id="5_5e3gk"]
+[ext_resource type="Texture2D" uid="uid://bu7b1kn3tu3f5" path="res://GameProjectTextures/label.jpg" id="6_wpkl3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vv4ag"]
 albedo_texture = ExtResource("2_nk2lq")
@@ -198,3 +199,8 @@ mesh = SubResource("ArrayMesh_cd34i")
 
 [node name="Cube_004" parent="." index="5" unique_id=480317524]
 mesh = SubResource("ArrayMesh_jrii1")
+
+[node name="Sprite3D" type="Sprite3D" parent="." index="6" unique_id=11420476]
+transform = Transform3D(-4.5678398e-08, 0, 1, 0, 0.645, 0, -1.045, 0, -4.371139e-08, -0.928, 1.57, 1.165)
+modulate = Color(0.6288588, 0.62885886, 0.628859, 1)
+texture = ExtResource("6_wpkl3")

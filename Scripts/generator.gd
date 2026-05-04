@@ -16,9 +16,11 @@ var placed_rooms = []
 var open_doors = []
 
 var last_main_scene: PackedScene = null
+var used_main_rooms: Array[PackedScene] = []
 
 func _ready():
 	rng.randomize()
+	used_main_rooms.clear()
 
 	var start = spawn_room(start_room, Vector3.ZERO, 0)
 	placed_rooms.append(start)
@@ -180,17 +182,31 @@ func get_random_room(pool: Array[PackedScene], last_scene: PackedScene) -> Packe
 	if pool.is_empty():
 		return null
 
-	var valid_rooms = []
+	var valid_rooms: Array[PackedScene] = []
 
+	# First pass: only rooms NOT used yet AND not the same as last
+	for room in pool:
+		if room != last_scene and not used_main_rooms.has(room):
+			valid_rooms.append(room)
+
+	# If we still have unused rooms, pick from them
+	if not valid_rooms.is_empty():
+		var chosen = valid_rooms.pick_random()
+		used_main_rooms.append(chosen)
+		return chosen
+
+	# If we've used all unique rooms, allow reuse (but still avoid same twice in a row)
 	for room in pool:
 		if room != last_scene:
 			valid_rooms.append(room)
 
-	# If all rooms were filtered out (only 1 type exists), allow fallback
-	if valid_rooms.is_empty():
-		return pool.pick_random()
+	if not valid_rooms.is_empty():
+		var chosen = valid_rooms.pick_random()
+		return chosen
 
-	return valid_rooms.pick_random()
+	# Absolute fallback (only one room exists)
+	return pool.pick_random()
+	
 
 func spawn_bottles():
 	var points = get_tree().get_nodes_in_group("bottle_spawn")

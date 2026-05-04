@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://bgjlc1c7o7wl5" path="res://pallet.tscn" id="9_b0g4k"]
 [ext_resource type="Texture2D" uid="uid://biua6hkbo30y3" path="res://GameProjectTextures/Dirtu-removebg-preview.png" id="10_b6oga"]
 [ext_resource type="PackedScene" uid="uid://bbsoqeawtui06" path="res://fire_ex.tscn" id="11_4jnq7"]
+[ext_resource type="PackedScene" uid="uid://2nya6r1o7uct" path="res://overg_headlight.tscn" id="12_c4m45"]
+[ext_resource type="Texture2D" uid="uid://dtu3qxslhrbvg" path="res://GameProjectTextures/paper1.jpg" id="13_606wo"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_age5i"]
 vertices = PackedVector3Array(-4.324356, 9, -7.0389996, -1.3243561, 9, -7.5389996, -4.074356, 9, -7.5389996, -4.824356, 9, -7.5389996, -7.824356, 9, -7.5389996, -4.574356, 9, -7.0389996, -4.574356, 9, -8.039, -4.574356, 9, 7.2110004, -4.324356, 9, 7.2110004, -7.824356, 9, 7.7110004, -1.3243561, 9, 7.7110004, 4.425644, 9, -7.0389996, 7.925644, 9, -7.5389996, 4.675644, 9, -7.5389996, 3.925644, 9, -7.5389996, 1.4256439, 9, -7.5389996, 4.175644, 9, -7.0389996, 4.175644, 9, -8.039, 4.175644, 9, 7.2110004, 4.425644, 9, 7.2110004, 1.4256439, 9, 7.7110004, 7.925644, 9, 7.7110004, -0.5743561, 1, 6.4610004, -0.32435608, 1, 7.7110004, 0.42564392, 1, 7.7110004, 0.6756439, 1, 6.4610004, 0.6756439, 1, -6.2889996, -0.5743561, 1, -6.2889996, 3.175644, 1, 6.4610004, 3.175644, 1, -6.2889996, 0.42564392, 1, -7.5389996, -0.32435608, 1, -7.5389996, -3.324356, 1, -6.2889996, -3.324356, 1, 6.4610004, -7.574356, 1, -6.2889996, -7.574356, 1, 6.4610004, -5.574356, 1, 6.4610004, -5.574356, 1, -6.2889996, 5.425644, 1, -6.2889996, 5.425644, 1, 6.4610004, 7.675644, 1, 6.4610004, 7.675644, 1, -6.2889996)
@@ -48,6 +50,14 @@ uv1_offset = Vector3(0, -0.205, 0)
 
 [sub_resource type="BoxMesh" id="BoxMesh_jo0m6"]
 material = SubResource("StandardMaterial3D_si0k0")
+size = Vector3(1, 1, 4.995)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4jnq7"]
+albedo_texture = ExtResource("5_8ssoa")
+uv1_scale = Vector3(19.44, 19.44, 19.44)
+
+[sub_resource type="BoxMesh" id="BoxMesh_c4m45"]
+material = SubResource("StandardMaterial3D_4jnq7")
 size = Vector3(1, 1, 4.995)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jnyxm"]
@@ -100,6 +110,20 @@ albedo_texture = ExtResource("7_5jlbx")
 
 [sub_resource type="BoxMesh" id="BoxMesh_606wo"]
 material = SubResource("StandardMaterial3D_c4m45")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_606wo"]
+albedo_texture = ExtResource("2_si0k0")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_cmt23"]
+material = SubResource("StandardMaterial3D_606wo")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wwfdj"]
+albedo_texture = ExtResource("2_si0k0")
+uv1_scale = Vector3(24.26, 1, 0.085)
+uv1_triplanar = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_7kyrv"]
+material = SubResource("StandardMaterial3D_wwfdj")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gu4bq"]
 albedo_color = Color(1, 0.6627451, 1, 1)
@@ -197,19 +221,19 @@ mesh = SubResource("BoxMesh_jo0m6")
 
 [node name="MeshInstance3D5" type="MeshInstance3D" parent="room_mesh" unique_id=1077397964 groups=["navmesh"]]
 transform = Transform3D(-2.8585816e-09, 0, 1.4649999, 0, 8.34, 0, -0.065396726, 0, -6.403718e-08, 4.676, 4.38, 7.9562235)
-mesh = SubResource("BoxMesh_jo0m6")
+mesh = SubResource("BoxMesh_c4m45")
 
 [node name="MeshInstance3D10" type="MeshInstance3D" parent="room_mesh" unique_id=1086660189 groups=["navmesh"]]
 transform = Transform3D(-2.8585816e-09, 0, 1.4649999, 0, 8.34, 0, -0.065396726, 0, -6.403718e-08, -4.6573133, 4.38, 7.9562235)
-mesh = SubResource("BoxMesh_jo0m6")
+mesh = SubResource("BoxMesh_c4m45")
 
 [node name="MeshInstance3D7" type="MeshInstance3D" parent="room_mesh" unique_id=487229953 groups=["navmesh"]]
 transform = Transform3D(-2.8412401e-09, 0, 1.465, 0, 8.34, 0, -0.065, 0, -6.403719e-08, 4.676, 4.38, -7.967)
-mesh = SubResource("BoxMesh_jo0m6")
+mesh = SubResource("BoxMesh_c4m45")
 
 [node name="MeshInstance3D9" type="MeshInstance3D" parent="room_mesh" unique_id=1448804559 groups=["navmesh"]]
 transform = Transform3D(-2.8412401e-09, 0, 1.465, 0, 8.34, 0, -0.065, 0, -6.403719e-08, -4.6655183, 4.38, -7.967)
-mesh = SubResource("BoxMesh_jo0m6")
+mesh = SubResource("BoxMesh_c4m45")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="room_mesh" unique_id=610417084]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.0132713, 0)
@@ -255,11 +279,27 @@ mesh = SubResource("BoxMesh_606wo")
 transform = Transform3D(0.1562706, 0.84145707, 0, -0.1562706, 0.84145707, 0, 0, 0, 0.221, -2.258059, 2.62, 0)
 mesh = SubResource("BoxMesh_606wo")
 
+[node name="MeshInstance3D18" type="MeshInstance3D" parent="room_mesh" unique_id=1976353019]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.131, 0, 0.515, -6.325)
+mesh = SubResource("PlaneMesh_cmt23")
+
+[node name="MeshInstance3D19" type="MeshInstance3D" parent="room_mesh" unique_id=685014741]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.131, 0, 0.515, 6.325)
+mesh = SubResource("PlaneMesh_cmt23")
+
+[node name="MeshInstance3D20" type="MeshInstance3D" parent="room_mesh" unique_id=62694187]
+transform = Transform3D(-2.7887867e-07, 0, 0.131, 0, 1, 0, -6.38, 0, -5.726192e-09, -0.894, 0.517, 0)
+mesh = SubResource("PlaneMesh_7kyrv")
+
+[node name="MeshInstance3D21" type="MeshInstance3D" parent="room_mesh" unique_id=821172717]
+transform = Transform3D(-2.7887867e-07, 0, 0.131, 0, 1, 0, -6.38, 0, -5.726192e-09, 0.854, 0.517, 0)
+mesh = SubResource("PlaneMesh_7kyrv")
+
 [node name="Table1" parent="." unique_id=977314979 instance=ExtResource("8_5jlbx")]
 transform = Transform3D(-0.03694904, 0, 0.55669653, 0, 0.46018398, 0, -0.47360367, 0, -0.04343168, 1.7281203, 0.6490917, -0.7283423)
 
 [node name="barrel" parent="." unique_id=248940506 instance=ExtResource("8_b0g4k")]
-transform = Transform3D(0.54, 0, 0, 0, 0.54, 0, 0, 0, 0.54, -2.6626334, 1.1832892, -5.8619704)
+transform = Transform3D(0.54, 0, 0, 0, 0.54, 0, 0, 0, 0.54, -2.5459676, 1.1832892, -4.0944905)
 
 [node name="pallet" parent="." unique_id=492098507 instance=ExtResource("9_b0g4k")]
 transform = Transform3D(0.2765779, 0, -0.08720468, 0, 0.29, 0, 0.08720468, 0, 0.2765779, 1.235, 0.52, 6.055)
@@ -315,3 +355,34 @@ texture = ExtResource("10_b6oga")
 
 [node name="FireEx" parent="." unique_id=1321507205 instance=ExtResource("11_4jnq7")]
 transform = Transform3D(0.145, 0, 0, 0, 0.145, 0, 0, 0, 0.145, 3.1173441, 1.5998638, 2.3803291)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=393633253]
+transform = Transform3D(0.9973451, 0.009719143, 0.072168924, -0.07282043, 0.13311289, 0.9884221, 0, -0.9910532, 0.13346724, 0, 3.4285722, -3.215579)
+light_energy = 14.224
+shadow_enabled = true
+shadow_normal_bias = 0.0
+shadow_caster_mask = 4294967293
+spot_range = 9.941
+spot_attenuation = 3.03
+spot_angle = 55.39
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="." unique_id=140884948]
+transform = Transform3D(0.98999906, 0.01868478, 0.13983117, -0.14107402, 0.13112205, 0.9812773, 0, -0.99119014, 0.13244663, -0.39487076, 3.4285722, 5.2121124)
+light_energy = 14.224
+shadow_enabled = true
+shadow_normal_bias = 0.0
+shadow_caster_mask = 4294967293
+spot_range = 9.941
+spot_attenuation = 3.0
+spot_angle = 60.71
+
+[node name="overg_headlight" parent="." unique_id=729700010 instance=ExtResource("12_c4m45")]
+transform = Transform3D(0.425, 0, 0, 0, 0.425, 0, 0, 0, 0.425, 0, 3.48, -3.225)
+
+[node name="overg_headlight2" parent="." unique_id=1615650055 instance=ExtResource("12_c4m45")]
+transform = Transform3D(0.425, 0, 0, 0, 0.425, 0, 0, 0, 0.425, 0, 3.48, 3.6807256)
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1123625879]
+transform = Transform3D(-4.3430408e-08, 4.94827e-09, 1, 0.11320322, 0.9935719, 0, -0.9935719, 0.11320322, -4.371139e-08, -3.395, 2.515, 5.8187284)
+modulate = Color(0.7372549, 0.7372549, 0.7372549, 0.0627451)
+texture = ExtResource("13_606wo")

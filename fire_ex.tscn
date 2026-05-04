@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://jdg230cp1kmx" path="res://FireEx.glb" id="1_7g5ju"]
 [ext_resource type="Texture2D" uid="uid://3biwtj2k442q" path="res://GameProjectTextures/RedxBeige.jpg" id="2_yp8uj"]
 [ext_resource type="Texture2D" uid="uid://dqr368phwctgd" path="res://GameProjectTextures/concrete.jpg" id="3_cuc1j"]
+[ext_resource type="Texture2D" uid="uid://bu7b1kn3tu3f5" path="res://GameProjectTextures/label.jpg" id="4_cuc1j"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tjjni"]
 albedo_texture = ExtResource("2_yp8uj")
@@ -121,3 +122,8 @@ mesh = SubResource("ArrayMesh_4hl83")
 
 [node name="Cube_002" parent="." index="3" unique_id=1762572036]
 mesh = SubResource("ArrayMesh_q0hur")
+
+[node name="Sprite3D" type="Sprite3D" parent="." index="4" unique_id=1897997397]
+transform = Transform3D(0.403731, 0, -0.9238795, 0, 2.845, 0, 0.9746928, 0, 0.38268343, -0.86, 0, 0.395)
+modulate = Color(0.641934, 0.641934, 0.641934, 1)
+texture = ExtResource("4_cuc1j")
