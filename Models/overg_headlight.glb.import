@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://mttq77x2ikmf"
-path="res://.godot/imported/barrel.glb-3a27817ebc5de9e8f2d08c9abb074e7f.scn"
+uid="uid://0n13cnd7siyd"
+path="res://.godot/imported/overg_headlight.glb-b506f7f4434141150144dfce882c0eac.scn"
 
 [deps]
 
-source_file="res://barrel.glb"
-dest_files=["res://.godot/imported/barrel.glb-3a27817ebc5de9e8f2d08c9abb074e7f.scn"]
+source_file="res://Models/overg_headlight.glb"
+dest_files=["res://.godot/imported/overg_headlight.glb-b506f7f4434141150144dfce882c0eac.scn"]
 
 [params]
 

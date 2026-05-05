@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://bbsoqeawtui06"]
 
-[ext_resource type="PackedScene" uid="uid://jdg230cp1kmx" path="res://FireEx.glb" id="1_7g5ju"]
+[ext_resource type="PackedScene" uid="uid://jdg230cp1kmx" path="res://Models/FireEx.glb" id="1_7g5ju"]
 [ext_resource type="Texture2D" uid="uid://3biwtj2k442q" path="res://GameProjectTextures/RedxBeige.jpg" id="2_yp8uj"]
 [ext_resource type="Texture2D" uid="uid://dqr368phwctgd" path="res://GameProjectTextures/concrete.jpg" id="3_cuc1j"]
 [ext_resource type="Texture2D" uid="uid://bu7b1kn3tu3f5" path="res://GameProjectTextures/label.jpg" id="4_cuc1j"]

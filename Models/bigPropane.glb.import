@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://jykxm0gtl67k"
-path="res://.godot/imported/Table1.glb-bc9c56a37e6eb87fe0d425b8b976ce64.scn"
+uid="uid://btqrnf2g6ctmd"
+path="res://.godot/imported/bigPropane.glb-01b19f384eb98f40f03796b3f1421718.scn"
 
 [deps]
 
-source_file="res://Table1.glb"
-dest_files=["res://.godot/imported/Table1.glb-bc9c56a37e6eb87fe0d425b8b976ce64.scn"]
+source_file="res://Models/bigPropane.glb"
+dest_files=["res://.godot/imported/bigPropane.glb-01b19f384eb98f40f03796b3f1421718.scn"]
 
 [params]
 

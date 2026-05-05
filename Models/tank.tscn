@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://6ssjapq0d6cp"]
 
-[ext_resource type="PackedScene" uid="uid://cy2hopcmj5chx" path="res://TANK.glb" id="1_6lwfj"]
+[ext_resource type="PackedScene" uid="uid://cy2hopcmj5chx" path="res://Models/TANK.glb" id="1_6lwfj"]
 [ext_resource type="Texture2D" uid="uid://dqr368phwctgd" path="res://GameProjectTextures/concrete.jpg" id="2_lk6ub"]
 [ext_resource type="Texture2D" uid="uid://dukgejm0ov301" path="res://GameProjectTextures/propanetext.jpg" id="3_i433e"]
 [ext_resource type="Texture2D" uid="uid://hed7no04ub3w" path="res://GameProjectTextures/Floor.jpg" id="4_mh3tg"]

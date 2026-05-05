@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://xwqa16b1l606"]
 
-[ext_resource type="PackedScene" uid="uid://jykxm0gtl67k" path="res://Table1.glb" id="1_0tp4w"]
+[ext_resource type="PackedScene" uid="uid://jykxm0gtl67k" path="res://Models/Table1.glb" id="1_0tp4w"]
 [ext_resource type="Texture2D" uid="uid://cbd3rll3rpmq7" path="res://GameProjectTextures/blue.jpg" id="2_qpos3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f4ekr"]

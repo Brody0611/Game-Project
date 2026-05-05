@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b57ixfg0w37na"]
 
-[ext_resource type="Material" uid="uid://c876ftcoej68f" path="res://floormat.tres" id="1_dx7ww"]
+[ext_resource type="Material" uid="uid://c876ftcoej68f" path="res://Models/floormat.tres" id="1_dx7ww"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_dx7ww"]
 geometry_parsed_geometry_type = 0

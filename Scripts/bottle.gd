@@ -1,13 +1,9 @@
-extends RigidBody3D
+extends StaticBody3D
 
 @export var sound_radius := 12.0
 @export var stun_power := 1
 
 var has_hit := false
-
-func _ready():
-	contact_monitor = true
-	max_contacts_reported = 5
 
 func _on_body_entered(body):
 	if has_hit:
@@ -24,7 +20,7 @@ func _on_body_entered(body):
 			body.stagger()
 	
 	# Optional: delete after hit
-	queue_free()
+	#queue_free()RT HWELMCKRNCKMWLCMKJWRNCLKKLM bad
 
 func emit_sound(pos: Vector3, loudness: float):
 	var enemies = get_tree().get_nodes_in_group("enemy")

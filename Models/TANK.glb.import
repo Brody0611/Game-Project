@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cy2hopcmj5chx"
-path="res://.godot/imported/TANK.glb-3ffe15da610fbca7335611dcdc3fb3c0.scn"
+path="res://.godot/imported/TANK.glb-5b7ea9c4f6f1bcd409df794cce6131a6.scn"
 
 [deps]
 
-source_file="res://TANK.glb"
-dest_files=["res://.godot/imported/TANK.glb-3ffe15da610fbca7335611dcdc3fb3c0.scn"]
+source_file="res://Models/TANK.glb"
+dest_files=["res://.godot/imported/TANK.glb-5b7ea9c4f6f1bcd409df794cce6131a6.scn"]
 
 [params]
 

@@ -7,6 +7,12 @@ extends CharacterBody3D
 @export var sprint_speed := 8.5
 @export var bottle_item: Item
 
+@export var acceleration := 10.0
+@export var sprint_acceleration := 10.0
+@export var deceleration := 12.0
+
+var current_speed := 0.0
+
 @onready var ray = $Head/Camera3D/RayCast3D
 
 const HEADBOB_MOVE_AMMOUNT = 0.06
@@ -43,8 +49,21 @@ func _handle_air_physics(delta) -> void:
 	self.velocity.y -= ProjectSettings.get_setting("physics/3d/default_gravity") * delta
 
 func _handle_ground_physics(delta) -> void:
-	self.velocity.x = wish_dir.x * get_move_speed()
-	self.velocity.z = wish_dir.z * get_move_speed()
+	var target_speed = get_move_speed()
+	
+	# Choose accel based on whether we're speeding up or slowing down
+	var accel = acceleration
+	if current_speed > target_speed:
+		accel = deceleration
+	elif target_speed == sprint_speed:
+		accel = sprint_acceleration
+	
+	# Smoothly move toward target speed
+	current_speed = move_toward(current_speed, target_speed, accel * delta)
+	
+	# Apply movement
+	self.velocity.x = wish_dir.x * current_speed
+	self.velocity.z = wish_dir.z * current_speed
 
 	headbob_effect(delta)
 
@@ -85,7 +104,6 @@ func _input(event):
 
 
 func try_pickup():
-	print("it didi it")
 	if not ray.is_colliding():
 		return
 	
@@ -97,7 +115,9 @@ func try_pickup():
 		body = body.get_parent()
 	
 	if body and body.is_in_group("bottle"):
+		body.queue_free()
 		print("Picked up bottle")
+		$Bottle.visible = true
 		
 		if add_item(bottle_item):
 			body.queue_free()

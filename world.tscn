@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cftfhugf360w" path="res://Rooms/main_room_2.tscn" id="5_pkg7o"]
 [ext_resource type="PackedScene" uid="uid://dhdx2s3pksgax" path="res://Rooms/branch_room_2.tscn" id="6_dwbse"]
 [ext_resource type="PackedScene" uid="uid://dm8kaelfm24q7" path="res://Rooms/main_room_5.tscn" id="8_k3n1d"]
-[ext_resource type="PackedScene" uid="uid://bqhwihf7ps4jq" path="res://bottle.tscn" id="10_ic0uy"]
+[ext_resource type="PackedScene" uid="uid://bqhwihf7ps4jq" path="res://Models/bottle.tscn" id="10_ic0uy"]
 [ext_resource type="PackedScene" uid="uid://dnc8wy4iv1efs" path="res://player.tscn" id="10_wse8f"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ioo17"]

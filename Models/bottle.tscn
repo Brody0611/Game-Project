@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bqhwihf7ps4jq"]
+
+[ext_resource type="Script" uid="uid://ucpc882y3hlv" path="res://Scripts/bottle.gd" id="1_6k8ux"]
+[ext_resource type="PackedScene" uid="uid://1lcj8788r3cr" path="res://Models/bottlemodel.tscn" id="2_xiyir"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2l8b7"]
+radius = 0.15820313
+height = 0.99975586
+
+[node name="Bottle" type="StaticBody3D" unique_id=704982289 groups=["bottle"]]
+disable_mode = 1
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_6k8ux")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1558214180]
+transform = Transform3D(0.825, 0, 0, 0, -3.6061895e-08, -0.825, 0, 0.825, -3.6061895e-08, 0, 0.10521832, -0.015005499)
+shape = SubResource("CapsuleShape3D_2l8b7")
+
+[node name="Bottle" parent="." unique_id=871715831 instance=ExtResource("2_xiyir")]
+transform = Transform3D(0.062061694, -4.281019e-09, -0.1474732, -0.1474732, -6.4462586e-09, -0.062061694, -4.281019e-09, 0.16, -6.4462586e-09, 0, 0.105, -0.12)

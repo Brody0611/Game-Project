@@ -1,12 +1,14 @@
 [gd_scene format=3 uid="uid://mpehgvhds6aa"]
 
-[ext_resource type="Material" uid="uid://c876ftcoej68f" path="res://floormat.tres" id="1_fjpmj"]
+[ext_resource type="Material" uid="uid://c876ftcoej68f" path="res://Models/floormat.tres" id="1_fjpmj"]
 [ext_resource type="Script" uid="uid://wlycgsiuqxns" path="res://Rooms/start_room.gd" id="1_t516r"]
 [ext_resource type="PackedScene" uid="uid://dm17l3530cicb" path="res://elevator.tscn" id="2_fjpmj"]
 [ext_resource type="Texture2D" uid="uid://dt4y42pile2ck" path="res://GameProjectTextures/brick.jpg" id="3_0m72j"]
 [ext_resource type="Texture2D" uid="uid://dqr368phwctgd" path="res://GameProjectTextures/concrete.jpg" id="3_lw5f1"]
 [ext_resource type="Texture2D" uid="uid://3biwtj2k442q" path="res://GameProjectTextures/RedxBeige.jpg" id="5_u4ie7"]
 [ext_resource type="Texture2D" uid="uid://dknwhk4ihqlkf" path="res://GameProjectTextures/authorisedperon.jpg" id="7_tt80s"]
+[ext_resource type="PackedScene" uid="uid://l2rk67enlhnu" path="res://Models/barrel.tscn" id="8_1v7i0"]
+[ext_resource type="Texture2D" uid="uid://dnpu823cwlbdh" path="res://GameProjectTextures/yellow.jpg" id="9_s6nev"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_3n6nl"]
 vertices = PackedVector3Array(-5.5, 1, -4.75, -3.25, 1, -5, -3.25, 1, -7.5, -7.5, 1, -7.5, -7.5, 1, 7.5, -3.25, 1, 7.5, -5.25, 1, -3, -3.25, 1, -3, -1.5, 1, -7.5, -1.5, 1, -5, 1.5, 1, -5, 1.5, 1, -7.5, 3.25, 1, -7.5, 3.25, 1, -5, 5.5, 1, -4.75, 7.5, 1, -7.5, 5.25, 1, -3, 3.25, 1, 7.5, 7.5, 1, 7.5, 3.25, 1, -3, -1.5, 1, 9, 1.75, 1, 9, 1.5, 1, -3, -1.5, 1, -3)
@@ -72,6 +74,34 @@ uv1_triplanar = true
 [sub_resource type="BoxMesh" id="BoxMesh_tt80s"]
 material = SubResource("StandardMaterial3D_3s7td")
 size = Vector3(1, 1, 4.995)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_606wo"]
+albedo_texture = ExtResource("9_s6nev")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_8ch2p"]
+material = SubResource("StandardMaterial3D_606wo")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s6nev"]
+albedo_texture = ExtResource("9_s6nev")
+uv1_scale = Vector3(8.5, 1, 0.085)
+uv1_triplanar = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_4v55b"]
+material = SubResource("StandardMaterial3D_s6nev")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wwfdj"]
+albedo_texture = ExtResource("9_s6nev")
+uv1_scale = Vector3(8.01, 1, 0.085)
+uv1_triplanar = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_8qnqc"]
+material = SubResource("StandardMaterial3D_wwfdj")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8ch2p"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8qnqc"]
+material = SubResource("StandardMaterial3D_8ch2p")
 
 [node name="start_room" type="Node3D" unique_id=1996625039]
 script = ExtResource("1_t516r")
@@ -152,3 +182,22 @@ mesh = SubResource("BoxMesh_tt80s")
 [node name="MeshInstance3D8" type="MeshInstance3D" parent="Sprite3D" unique_id=617821804]
 transform = Transform3D(-6.077992e-09, 0, 1.4649999, 0, 5.0049977, 0, -0.13904822, 0, -6.4037145e-08, -4.348, -1.23, 0.372)
 mesh = SubResource("BoxMesh_tt80s")
+
+[node name="barrel" parent="." unique_id=248940506 instance=ExtResource("8_1v7i0")]
+transform = Transform3D(0.54, 0, 0, 0, 0.54, 0, 0, 0, 0.54, -1.3509678, 1.1787806, 6.851999)
+
+[node name="MeshInstance3D18" type="MeshInstance3D" parent="." unique_id=2110275653]
+transform = Transform3D(-1, 0, -1.978045e-08, 0, 1, 0, 1.509958e-07, 0, -0.131, -0.07629752, 0.502, 6.214016)
+mesh = SubResource("PlaneMesh_8ch2p")
+
+[node name="MeshInstance3D20" type="MeshInstance3D" parent="." unique_id=420326591]
+transform = Transform3D(2.3978134e-07, 0, -0.131, 0, 1, 0, 3.176, 0, 9.890225e-09, 0.790817, 0.502, 3.1827807)
+mesh = SubResource("PlaneMesh_4v55b")
+
+[node name="MeshInstance3D21" type="MeshInstance3D" parent="." unique_id=28567708]
+transform = Transform3D(2.3978134e-07, 0, -0.131, 0, 1, 0, 3.176, 0, 9.890225e-09, -0.9252987, 0.502, 3.1827807)
+mesh = SubResource("PlaneMesh_8qnqc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=670530322]
+transform = Transform3D(3.795, 0, 0, 0, 0.07, 0, 0, 0, 0.07, 0, 0.475, 0)
+mesh = SubResource("BoxMesh_8qnqc")

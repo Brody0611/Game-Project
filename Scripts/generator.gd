@@ -229,9 +229,7 @@ func debug_spawn_points():
 	var points = get_tree().get_nodes_in_group("bottle_spawn")
 	
 	for p in points:
-		var mesh = MeshInstance3D.new()
-		mesh.mesh = SphereMesh.new()
-		mesh.scale = Vector3(0.2, 0.2, 0.2)
-		mesh.global_position = p.global_position
+		var bottle = bottle_scene.instantiate()
+		bottle.global_position = p.global_position
 		
-		add_child(mesh)
+		add_child(bottle)

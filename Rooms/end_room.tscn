@@ -1,5 +1,13 @@
 [gd_scene format=3 uid="uid://psrvy3fo3lj1"]
 
+[ext_resource type="Texture2D" uid="uid://dqr368phwctgd" path="res://GameProjectTextures/concrete.jpg" id="1_8dnaq"]
+[ext_resource type="Texture2D" uid="uid://dt4y42pile2ck" path="res://GameProjectTextures/brick.jpg" id="2_w7wgk"]
+[ext_resource type="PackedScene" uid="uid://0rrevqgteig1" path="res://endelevator.tscn" id="3_8dnaq"]
+[ext_resource type="Script" uid="uid://c3x0f61qxstau" path="res://endelevator.gd" id="4_w7wgk"]
+[ext_resource type="Texture2D" uid="uid://gqq83nof2cpa" path="res://GameProjectTextures/greywall.jpg" id="5_w8a03"]
+[ext_resource type="Texture2D" uid="uid://dnpu823cwlbdh" path="res://GameProjectTextures/yellow.jpg" id="6_uvnkd"]
+[ext_resource type="Texture2D" uid="uid://3biwtj2k442q" path="res://GameProjectTextures/RedxBeige.jpg" id="7_swkve"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8tavf"]
 albedo_color = Color(0, 0, 0, 1)
 
@@ -7,13 +15,24 @@ albedo_color = Color(0, 0, 0, 1)
 material = SubResource("StandardMaterial3D_8tavf")
 size = Vector3(16, 1, 16)
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_8tavf"]
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_x2r7q"]
 size = Vector3(16, 1, 16)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w7wgk"]
+albedo_texture = ExtResource("1_8dnaq")
+uv1_triplanar = true
+
 [sub_resource type="BoxMesh" id="BoxMesh_jmwm0"]
+material = SubResource("StandardMaterial3D_w7wgk")
 size = Vector3(16, 1, 16)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w8a03"]
+albedo_texture = ExtResource("2_w7wgk")
+uv1_scale = Vector3(19.44, 19.44, 19.44)
+
+[sub_resource type="BoxMesh" id="BoxMesh_uvnkd"]
+material = SubResource("StandardMaterial3D_w8a03")
+size = Vector3(1, 1, 4.995)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x2r7q"]
 albedo_color = Color(1, 0.27058825, 0, 1)
@@ -23,6 +42,43 @@ material = SubResource("StandardMaterial3D_x2r7q")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8tavf"]
 size = Vector3(14, 1, 14)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8dnaq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r2f8e"]
+albedo_texture = ExtResource("5_w8a03")
+uv1_scale = Vector3(6.21, 6.5, 1)
+uv1_offset = Vector3(0, -0.27, 0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_gplry"]
+material = SubResource("StandardMaterial3D_r2f8e")
+size = Vector3(1, 1, 4.995)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_si0k0"]
+albedo_texture = ExtResource("5_w8a03")
+uv1_scale = Vector3(6.21, 6.98, 1)
+uv1_offset = Vector3(0, -0.205, 0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_rr376"]
+material = SubResource("StandardMaterial3D_si0k0")
+size = Vector3(1, 1, 4.995)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_46b48"]
+albedo_texture = ExtResource("6_uvnkd")
+uv1_scale = Vector3(0.365, 0.215, 7.065)
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_178py"]
+material = SubResource("StandardMaterial3D_46b48")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8ssoa"]
+albedo_texture = ExtResource("7_swkve")
+uv1_scale = Vector3(1, 1.04, 33.59)
+uv1_offset = Vector3(0, 0.515, 0)
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_oxeyj"]
+material = SubResource("StandardMaterial3D_8ssoa")
 
 [node name="start_room" type="Node3D" unique_id=1996625039]
 
@@ -35,18 +91,22 @@ mesh = SubResource("BoxMesh_ctwpx")
 transform = Transform3D(1, 0, 0, 0, 6.728631, 0, 0, 0, 0.106375515, 0, 2.9785933, -3.6603603)
 mesh = SubResource("BoxMesh_ctwpx")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="meshes" unique_id=829785175]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-mesh = SubResource("CylinderMesh_8tavf")
-
 [node name="StaticBody3D" type="StaticBody3D" parent="meshes" unique_id=1540170762]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="meshes/StaticBody3D" unique_id=2140106935]
 shape = SubResource("BoxShape3D_x2r7q")
 
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="meshes" unique_id=786293652]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.8459768, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.038164, 0)
 mesh = SubResource("BoxMesh_jmwm0")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="meshes" unique_id=1074900776 groups=["navmesh"]]
+transform = Transform3D(-2.8585816e-09, 0, 1.4649999, 0, 8.34, 0, -0.065396726, 0, -6.403718e-08, 4.676, 4.38, 7.9562235)
+mesh = SubResource("BoxMesh_uvnkd")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="meshes" unique_id=934531364 groups=["navmesh"]]
+transform = Transform3D(-2.8585816e-09, 0, 1.4649999, 0, 8.34, 0, -0.065396726, 0, -6.403718e-08, -4.6573133, 4.38, 7.9562235)
+mesh = SubResource("BoxMesh_uvnkd")
 
 [node name="Doors" type="Node3D" parent="." unique_id=851642706]
 
@@ -63,3 +123,42 @@ mesh = SubResource("BoxMesh_qjqdh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Bounds" unique_id=508184445]
 shape = SubResource("BoxShape3D_8tavf")
+
+[node name="EndElevator" parent="." unique_id=1324549586 instance=ExtResource("3_8dnaq")]
+transform = Transform3D(1.66, 0, 0, 0, 1.66, 0, 0, 0, 1.66, 0.85201216, 2.065, 2.718305)
+script = ExtResource("4_w7wgk")
+
+[node name="Area3D" type="Area3D" parent="EndElevator" unique_id=610423358]
+transform = Transform3D(0.60240966, 0, 0, 0, 0.60240966, 0, 0, 0, 0.7261086, -0.5132604, -0.039156675, -1.4616847)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EndElevator/Area3D" unique_id=592693674]
+transform = Transform3D(3.33, 0, 0, 0, 3.33, 0, 0, 0, 2.6295533, 0, 0, -0.5358103)
+shape = SubResource("BoxShape3D_8dnaq")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=706940270 groups=["navmesh"]]
+transform = Transform3D(1, 0, 0, 0, 8.34, 0, 0, 0, 3.2261322, 3.7971678, 4.38, -0.13287067)
+mesh = SubResource("BoxMesh_gplry")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="." unique_id=2137768744 groups=["navmesh"]]
+transform = Transform3D(1, 0, 0, 0, 8.34, 0, 0, 0, 3.2452834, -3.9141767, 4.38, -0.13287067)
+mesh = SubResource("BoxMesh_rr376")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=662838139]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 15.862192, -3.4452167, 0.67770696, 0.042369902)
+mesh = SubResource("BoxMesh_178py")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="." unique_id=577051791]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 15.862192, 3.3853726, 0.67770696, 0.042369902)
+mesh = SubResource("BoxMesh_178py")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="." unique_id=515983578]
+transform = Transform3D(0.34, 0, 0, 0, 0.1330321, 0, 0, 0, 15.745, -3.505, 3.4993868, 0)
+mesh = SubResource("BoxMesh_oxeyj")
+
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="." unique_id=2066083742]
+transform = Transform3D(0.34, 0, 0, 0, 0.1330321, 0, 0, 0, 15.745, 3.4499998, 3.4993868, 0)
+mesh = SubResource("BoxMesh_oxeyj")
+
+[connection signal="body_entered" from="EndElevator/Area3D" to="EndElevator" method="_on_area_3d_body_entered"]

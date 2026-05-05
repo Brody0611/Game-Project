@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://bgwmd7r642u35"]
+
+[ext_resource type="Texture2D" uid="uid://dqr368phwctgd" path="res://GameProjectTextures/concrete.jpg" id="1_hcspt"]
+[ext_resource type="Texture2D" uid="uid://bb851qtneav3r" path="res://GameProjectTextures/machine.jpg" id="2_a13x5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7dpg0"]
+albedo_texture = ExtResource("1_hcspt")
+uv1_scale = Vector3(1, 2.705, 1)
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_d6t2q"]
+material = SubResource("StandardMaterial3D_7dpg0")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dtyjl"]
+albedo_texture = ExtResource("2_a13x5")
+uv1_scale = Vector3(0.385, 1.61, 1)
+uv1_offset = Vector3(0.5, 0.195, 0)
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_wchdm"]
+material = SubResource("StandardMaterial3D_dtyjl")
+
+[node name="Locker" type="Node3D" unique_id=1438713223]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=513710061]
+transform = Transform3D(1, 0, 0, 0, 3, 0, 0, 0, 0.9064053, 0, 1.5, 0)
+mesh = SubResource("BoxMesh_d6t2q")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1690180168]
+transform = Transform3D(0.974, 0, 0, 0, 2.92, 0, 0, 0, 0.15, 0, 1.5, 0.49286628)
+mesh = SubResource("BoxMesh_wchdm")

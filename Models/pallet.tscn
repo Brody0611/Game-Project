@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://bgjlc1c7o7wl5"]
 
-[ext_resource type="PackedScene" uid="uid://d2aqsap5pvtr3" path="res://pallet.glb" id="1_r8q5o"]
+[ext_resource type="PackedScene" uid="uid://d2aqsap5pvtr3" path="res://Models/pallet.glb" id="1_r8q5o"]
 [ext_resource type="Texture2D" uid="uid://dukgejm0ov301" path="res://GameProjectTextures/propanetext.jpg" id="2_svtij"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ipn1s"]

@@ -1,14 +1,14 @@
 [gd_scene format=4 uid="uid://dm8kaelfm24q7"]
 
-[ext_resource type="Material" uid="uid://c876ftcoej68f" path="res://floormat.tres" id="1_jhjex"]
+[ext_resource type="Material" uid="uid://c876ftcoej68f" path="res://Models/floormat.tres" id="1_jhjex"]
 [ext_resource type="Texture2D" uid="uid://dt4y42pile2ck" path="res://GameProjectTextures/brick.jpg" id="2_c8how"]
 [ext_resource type="Texture2D" uid="uid://dww2tpjx3k1yn" path="res://GameProjectTextures/checkeredFloor.jpg" id="3_a0jfs"]
 [ext_resource type="Texture2D" uid="uid://dcjv2um1q4nr1" path="res://GameProjectTextures/wall_angle.jpg" id="3_ysngm"]
 [ext_resource type="Texture2D" uid="uid://4py7cq2p2qmt" path="res://GameProjectTextures/MetalWallTop.jpg" id="4_a0jfs"]
 [ext_resource type="Texture2D" uid="uid://3biwtj2k442q" path="res://GameProjectTextures/RedxBeige.jpg" id="5_qijb3"]
 [ext_resource type="Texture2D" uid="uid://dnpu823cwlbdh" path="res://GameProjectTextures/yellow.jpg" id="7_5f03l"]
-[ext_resource type="PackedScene" uid="uid://b3wxojrbkln1g" path="res://big_propane.tscn" id="7_a0jfs"]
-[ext_resource type="PackedScene" uid="uid://6ssjapq0d6cp" path="res://tank.tscn" id="8_qijb3"]
+[ext_resource type="PackedScene" uid="uid://b3wxojrbkln1g" path="res://Models/big_propane.tscn" id="7_a0jfs"]
+[ext_resource type="PackedScene" uid="uid://6ssjapq0d6cp" path="res://Models/tank.tscn" id="8_qijb3"]
 [ext_resource type="Texture2D" uid="uid://biua6hkbo30y3" path="res://GameProjectTextures/Dirtu-removebg-preview.png" id="9_3s7td"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_lcb3j"]

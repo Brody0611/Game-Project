@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://l2rk67enlhnu"]
 
-[ext_resource type="PackedScene" uid="uid://mttq77x2ikmf" path="res://barrel.glb" id="1_n8un1"]
+[ext_resource type="PackedScene" uid="uid://mttq77x2ikmf" path="res://Models/barrel.glb" id="1_n8un1"]
 [ext_resource type="Texture2D" uid="uid://3biwtj2k442q" path="res://GameProjectTextures/RedxBeige.jpg" id="2_a12vh"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rdxsi"]

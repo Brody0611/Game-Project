@@ -1,14 +1,14 @@
-[gd_scene format=3 uid="uid://dm17l3530cicb"]
+[gd_scene format=3 uid="uid://0rrevqgteig1"]
 
-[ext_resource type="Script" uid="uid://bikf6mkoo32s5" path="res://elevator.gd" id="1_1ug6e"]
-[ext_resource type="Texture2D" uid="uid://b3bqx6yaq7ail" path="res://GameProjectTextures/metal.jpg" id="1_uuuf0"]
-[ext_resource type="Texture2D" uid="uid://4py7cq2p2qmt" path="res://GameProjectTextures/MetalWallTop.jpg" id="2_hr1cl"]
-[ext_resource type="Texture2D" uid="uid://dqr368phwctgd" path="res://GameProjectTextures/concrete.jpg" id="3_1ug6e"]
-[ext_resource type="Texture2D" uid="uid://3biwtj2k442q" path="res://GameProjectTextures/RedxBeige.jpg" id="4_pf55e"]
-[ext_resource type="Texture2D" uid="uid://dt4y42pile2ck" path="res://GameProjectTextures/brick.jpg" id="5_mrk6d"]
+[ext_resource type="Script" uid="uid://bikf6mkoo32s5" path="res://elevator.gd" id="1_slptm"]
+[ext_resource type="Texture2D" uid="uid://b3bqx6yaq7ail" path="res://GameProjectTextures/metal.jpg" id="2_xihmp"]
+[ext_resource type="Texture2D" uid="uid://4py7cq2p2qmt" path="res://GameProjectTextures/MetalWallTop.jpg" id="3_8y5nb"]
+[ext_resource type="Texture2D" uid="uid://dqr368phwctgd" path="res://GameProjectTextures/concrete.jpg" id="4_dmsy2"]
+[ext_resource type="Texture2D" uid="uid://3biwtj2k442q" path="res://GameProjectTextures/RedxBeige.jpg" id="5_6gplw"]
+[ext_resource type="Texture2D" uid="uid://dt4y42pile2ck" path="res://GameProjectTextures/brick.jpg" id="6_18hbc"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pc862"]
-albedo_texture = ExtResource("1_uuuf0")
+albedo_texture = ExtResource("2_xihmp")
 uv1_scale = Vector3(3.15, 3.15, 3.15)
 
 [sub_resource type="BoxMesh" id="BoxMesh_a1q2r"]
@@ -105,7 +105,7 @@ _data = {
 }
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y5ghj"]
-albedo_texture = ExtResource("2_hr1cl")
+albedo_texture = ExtResource("3_8y5nb")
 uv1_scale = Vector3(1.105, 1.015, 2.465)
 uv1_offset = Vector3(0.525, -2.495, -0.36)
 uv1_triplanar = true
@@ -114,27 +114,27 @@ uv1_triplanar = true
 material = SubResource("StandardMaterial3D_y5ghj")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hschd"]
-albedo_texture = ExtResource("2_hr1cl")
+albedo_texture = ExtResource("3_8y5nb")
 uv1_scale = Vector3(3.03, 2.025, 0.005)
 
 [sub_resource type="BoxMesh" id="BoxMesh_3iwpb"]
 material = SubResource("StandardMaterial3D_hschd")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ee22d"]
-albedo_texture = ExtResource("3_1ug6e")
+albedo_texture = ExtResource("4_dmsy2")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_majop"]
 material = SubResource("StandardMaterial3D_ee22d")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_22c28"]
-albedo_texture = ExtResource("4_pf55e")
+albedo_texture = ExtResource("5_6gplw")
 uv1_scale = Vector3(10.31, 10.31, 10.31)
 
 [sub_resource type="BoxMesh" id="BoxMesh_ytpvu"]
 material = SubResource("StandardMaterial3D_22c28")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_68702"]
-albedo_texture = ExtResource("5_mrk6d")
+albedo_texture = ExtResource("6_18hbc")
 uv1_scale = Vector3(7.125, 1.895, 1)
 uv1_triplanar = true
 
@@ -144,8 +144,8 @@ material = SubResource("StandardMaterial3D_68702")
 [sub_resource type="BoxShape3D" id="BoxShape3D_1ug6e"]
 size = Vector3(1, 1, 0.001)
 
-[node name="Elevator" type="Node3D" unique_id=1324549586]
-script = ExtResource("1_1ug6e")
+[node name="EndElevator" type="Node3D" unique_id=1324549586]
+script = ExtResource("1_slptm")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=178746978]
 transform = Transform3D(1, 0, 0, 0, 1.881007, 0, 0, 0, 0.04229808, 0, 0, 0)
@@ -194,10 +194,6 @@ mesh = SubResource("PlaneMesh_majop")
 transform = Transform3D(1.735, 0, 0, 0, -1, 1.3375684e-07, 0, -8.742278e-08, -1.53, -0.45171463, 0.93128026, -1.5427498)
 mesh = SubResource("PlaneMesh_majop")
 
-[node name="MeshInstance3D12" type="MeshInstance3D" parent="." unique_id=1103920725]
-transform = Transform3D(1.735, 0, 0, 0, 1, 0, 0, 0, 1.53, -0.45171463, 1.0626451, -1.5427498)
-mesh = SubResource("PlaneMesh_majop")
-
 [node name="MeshInstance3D10" type="MeshInstance3D" parent="." unique_id=127802237]
 transform = Transform3D(4.245, 0, 0, 0, 0.11, 0, 0, 0, 0.22, -0.5180373, 0.9579246, 0)
 mesh = SubResource("BoxMesh_ytpvu")
@@ -213,12 +209,7 @@ transform = Transform3D(2.02, 0, 0, 0, 2.02, 0, 0, 0, 2.02, -0.5, 0, 0.085)
 shape = SubResource("BoxShape3D_1ug6e")
 disabled = true
 
-[node name="SpotLight3D2" type="SpotLight3D" parent="." unique_id=411548656]
-transform = Transform3D(0.9999619, 0.008726507, -3.1759587e-08, 3.202047e-08, -2.9755254e-08, 1, 0.008726507, -0.9999619, -3.0033547e-08, -0.47954476, 0.8405714, -1.6040384)
-light_energy = 18.964
-shadow_enabled = true
-shadow_normal_bias = 0.0
-shadow_caster_mask = 4294967293
-spot_range = 9.941
-spot_attenuation = 3.0
-spot_angle = 60.71
+[node name="Label3D" type="Label3D" parent="." unique_id=1385018316]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -2.8613825)
+modulate = Color(1, 0, 0, 1)
+text = "EXIT"
