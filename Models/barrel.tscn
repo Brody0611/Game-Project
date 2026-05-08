@@ -37,7 +37,15 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_qtuq0")
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_lavym"]
+
 [node name="barrel" unique_id=248940506 instance=ExtResource("1_n8un1")]
 
-[node name="Cylinder" parent="." index="0" unique_id=1634829430]
+[node name="Cylinder" parent="." index="0" unique_id=1110481080]
 mesh = SubResource("ArrayMesh_ygdis")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1" unique_id=361025644]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0" unique_id=473217191]
+transform = Transform3D(2.065, 0, 0, 0, 1.215, 0, 0, 0, 2.065, 0, 0, 0)
+shape = SubResource("CylinderShape3D_lavym")

@@ -157,6 +157,13 @@ transform = Transform3D(1.66, 0, 0, 0, 1.66, 0, 0, 0, 1.66, 0.852, 2.065, -2.616
 transform = Transform3D(0.7844193, 0, -0.6202309, 0, 1, 0, 0.6202309, 0, 0.7844193, 0, 1, 2.0773828)
 collision_layer = 3
 collision_mask = 3
+look_sensitivity = null
+auto_bhop = null
+sprint_speed = null
+acceleration = null
+sprint_acceleration = null
+deceleration = null
+max_slots = null
 
 [node name="MeshInstance3D10" type="MeshInstance3D" parent="." unique_id=1825281475 groups=["navmesh"]]
 transform = Transform3D(-2.3572538e-08, 0, 1.1555748, 0, 8.34, 0, -0.53927684, 0, -5.051178e-08, -5.1349397, 2.9972363, -2.717979)

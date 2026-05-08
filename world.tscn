@@ -33,6 +33,7 @@ fog_depth_end = 50.0
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_gbfbk"]
 geometry_parsed_geometry_type = 0
+agent_radius = 0.7
 
 [node name="world" type="Node3D" unique_id=1817246388]
 
@@ -54,7 +55,7 @@ main_length = 3
 branch_count = 1
 
 [node name="player" parent="." unique_id=1093883535 instance=ExtResource("10_wse8f")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, -2.9859738)
+transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 0, 0, -2.9859738)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=257635433]
 navigation_mesh = SubResource("NavigationMesh_gbfbk")

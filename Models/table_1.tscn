@@ -77,16 +77,24 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_xux3r")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_g5suw"]
+
 [node name="Table1" unique_id=977314979 instance=ExtResource("1_0tp4w")]
 
-[node name="Cube" parent="." index="0" unique_id=1187361641]
+[node name="Cube" parent="." index="0" unique_id=1436398411]
 mesh = SubResource("ArrayMesh_2a8xq")
 
-[node name="Cube_001" parent="." index="1" unique_id=1715066211]
+[node name="Cube_001" parent="." index="1" unique_id=1568875745]
 mesh = SubResource("ArrayMesh_2a8xq")
 
-[node name="Cube_002" parent="." index="2" unique_id=1752468426]
+[node name="Cube_002" parent="." index="2" unique_id=330797749]
 mesh = SubResource("ArrayMesh_2a8xq")
 
-[node name="Cube_003" parent="." index="3" unique_id=965166056]
+[node name="Cube_003" parent="." index="3" unique_id=879326634]
 mesh = SubResource("ArrayMesh_k7bxu")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="4" unique_id=120034239]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0" unique_id=1235800550]
+transform = Transform3D(1.585, 0, 0, 0, 2.645, 0, 0, 0, 2.96, 0, 1.04, 0)
+shape = SubResource("BoxShape3D_g5suw")

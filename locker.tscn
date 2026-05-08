@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bgwmd7r642u35"]
 
+[ext_resource type="Script" uid="uid://bt812v0lt0efl" path="res://locker.gd" id="1_a13x5"]
 [ext_resource type="Texture2D" uid="uid://dqr368phwctgd" path="res://GameProjectTextures/concrete.jpg" id="1_hcspt"]
 [ext_resource type="Texture2D" uid="uid://bb851qtneav3r" path="res://GameProjectTextures/machine.jpg" id="2_a13x5"]
 
@@ -20,7 +21,12 @@ uv1_triplanar = true
 [sub_resource type="BoxMesh" id="BoxMesh_wchdm"]
 material = SubResource("StandardMaterial3D_dtyjl")
 
-[node name="Locker" type="Node3D" unique_id=1438713223]
+[sub_resource type="SphereShape3D" id="SphereShape3D_7dpg0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a13x5"]
+
+[node name="Locker" type="Node3D" unique_id=1438713223 groups=["locker"]]
+script = ExtResource("1_a13x5")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=513710061]
 transform = Transform3D(1, 0, 0, 0, 3, 0, 0, 0, 0.9064053, 0, 1.5, 0)
@@ -29,3 +35,18 @@ mesh = SubResource("BoxMesh_d6t2q")
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1690180168]
 transform = Transform3D(0.974, 0, 0, 0, 2.92, 0, 0, 0, 0.15, 0, 1.5, 0.49286628)
 mesh = SubResource("BoxMesh_wchdm")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1225357301]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=268061644]
+transform = Transform3D(3.145, 0, 0, 0, 3.145, 0, 0, 0, 3.145, 0, 1, 0)
+shape = SubResource("SphereShape3D_7dpg0")
+
+[node name="HidePosition" type="Marker3D" parent="." unique_id=1092663898]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=309030065]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=978871566]
+transform = Transform3D(1, 0, 0, 0, 3, 0, 0, 0, 1.056, 0, 1.49, 0.05)
+shape = SubResource("BoxShape3D_a13x5")

@@ -1,5 +1,7 @@
 extends CharacterBody3D
 
+class_name Player
+
 @export var look_sensitivity : float = 0.006
 @export var jump_velocity := 6.0
 @export var auto_bhop := true
@@ -12,6 +14,9 @@ extends CharacterBody3D
 @export var deceleration := 12.0
 
 var current_speed := 0.0
+var tweening := false
+var viewing := false
+var can_toggle_camera := true
 
 @onready var ray = $Head/Camera3D/RayCast3D
 
@@ -26,20 +31,38 @@ func get_move_speed() -> float:
 	return sprint_speed if Input.is_action_pressed("sprint") else walk_speed
 
 func _unhandled_input(event: InputEvent) -> void:
+
+	if is_hiding:
+		return
+
+	# ADD THIS
+	if viewing:
+		return
+
 	if event is InputEventMouseButton:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	elif event.is_action_pressed("ui_cancel"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	
+
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		if event is InputEventMouseMotion:
 			rotate_y(-event.relative.x * look_sensitivity)
-			%Camera3D.rotate_x(-event.relative.y * look_sensitivity)
-			%Camera3D.rotation.x = clamp(%Camera3D.rotation.x, deg_to_rad(-90), deg_to_rad(90))
+			camera.rotate_x(-event.relative.y * look_sensitivity)
+			camera.rotation.x = clamp(
+				camera.rotation.x,
+				deg_to_rad(-90),
+				deg_to_rad(90)
+			)
 
 func headbob_effect(delta):
+
+	# ADD THIS
+	if viewing:
+		return
+
 	headbob_time += delta * self.velocity.length()
-	%Camera3D.transform.origin = Vector3(
+
+	camera.transform.origin = Vector3(
 		cos(headbob_time * HEADBOB_FREQUENCY * 0.5) * HEADBOB_MOVE_AMMOUNT,
 		sin(headbob_time * HEADBOB_FREQUENCY) * HEADBOB_MOVE_AMMOUNT,
 		0
@@ -67,9 +90,28 @@ func _handle_ground_physics(delta) -> void:
 
 	headbob_effect(delta)
 
+func get_interactable_component_at_shapecast() -> InteractableComponent:
+	for i in %InteractShapeCast.get_collision_count():
+		if i > 0 and %InteractShapeCast.get_collider(0) != $".":
+			return null
+		if %InteractShapeCast.get_collider(i).get_node_or_null("InteractableComponent") is InteractableComponent:
+			return %InteractShapeCast.get_collider(i).get_node_or_null("InteractableComponent")
+	return null
+
 func _physics_process(delta: float) -> void:
 	var input_dir = Input.get_vector("left", "right", "up", "down").normalized()
 	wish_dir = self.global_transform.basis * Vector3(input_dir.x, 0., input_dir.y)
+	
+	if camera_locked:
+		move_and_slide()
+		return
+	
+	if !tweening:
+		if get_interactable_component_at_shapecast():
+			get_interactable_component_at_shapecast().hover_curser(self)
+
+			if Input.is_action_just_released("interact"):
+				get_interactable_component_at_shapecast().interact_with()
 	
 	if is_on_floor():
 		if Input.is_action_just_pressed("jump") or (auto_bhop and Input.is_action_pressed("jump")):
@@ -78,7 +120,12 @@ func _physics_process(delta: float) -> void:
 	else:
 		_handle_air_physics(delta)
 	
+	if is_hiding:
+		move_and_slide()
+		return
+	
 	move_and_slide()
+	
 
 func emit_sound(pos: Vector3, loudness: float):
 	var enemies = get_tree().get_nodes_in_group("enemy")
@@ -91,37 +138,9 @@ func _input(event):
 	if event.is_action_pressed("ui_accept"): # usually SPACE or ENTER
 		print("Sound emitted!")
 		emit_sound(global_position, 10.0)
-	
-	if event.is_action_pressed("interact"):
-		print("INTERACT PRESSED")
-		try_pickup()
 		
 		if event.is_action_pressed("attack"):
 			throw_bottle()
-	
-	if event.is_action_pressed("interact"):
-		try_pickup()
-
-
-func try_pickup():
-	if not ray.is_colliding():
-		return
-	
-	var body = ray.get_collider()
-	
-	
-	# Walk up to find actual object
-	while body and not body.is_in_group("bottle"):
-		body = body.get_parent()
-	
-	if body and body.is_in_group("bottle"):
-		body.queue_free()
-		print("Picked up bottle")
-		$Bottle.visible = true
-		
-		if add_item(bottle_item):
-			body.queue_free()
-	print("Hit:", body, " | Type:", body.get_class())
 
 func throw_bottle():
 	if held_bottle == null:
@@ -171,3 +190,95 @@ func get_looked_at_object():
 	if ray.is_colliding():
 		return ray.get_collider()
 	return null
+
+var is_hiding = false
+var saved_transform
+
+func enter_hiding(target_transform: Transform3D):
+	is_hiding = true
+	
+	# Save position
+	saved_transform = global_transform
+	
+	# Move player into locker
+	global_transform = target_transform
+	
+	# Disable movement
+	velocity = Vector3.ZERO
+	
+	# Optional: disable collision
+	$CollisionShape3D.disabled = true
+	
+	# Optional: lock camera
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+func exit_hiding():
+	is_hiding = false
+	
+	# Restore position (or move slightly outside locker)
+	global_position += -global_transform.basis.z * 1.5
+	
+	$CollisionShape3D.disabled = false
+	
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
+
+
+#func _ready():
+#	original_camera_transform = camera.global_transform
+
+@onready var head = $Head
+@onready var camera = $Head/Camera3D
+
+var camera_locked := false
+
+var saved_head_transform : Transform3D
+
+
+func toggle_camera(target_pos: Vector3, look_at_pos: Vector3, duration := 1.0):
+
+	if !can_toggle_camera:
+		return
+
+	can_toggle_camera = false
+
+	var tween = create_tween()
+	tween.set_trans(Tween.TRANS_SINE)
+	tween.set_ease(Tween.EASE_IN_OUT)
+
+	if !viewing:
+
+		viewing = true
+
+		saved_head_transform = head.global_transform
+
+		var target := Transform3D.IDENTITY
+		target.origin = target_pos
+		target = target.looking_at(look_at_pos, Vector3.UP)
+
+		tween.tween_property(
+			head,
+			"global_transform",
+			target,
+			duration
+		)
+
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+	else:
+
+		viewing = false
+
+		tween.tween_property(
+			head,
+			"global_transform",
+			saved_head_transform,
+			duration
+		)
+
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
+	tween.finished.connect(func():
+		await get_tree().create_timer(0.25).timeout
+		can_toggle_camera = true
+	)
