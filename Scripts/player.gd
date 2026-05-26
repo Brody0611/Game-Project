@@ -13,6 +13,10 @@ class_name Player
 @export var sprint_acceleration := 10.0
 @export var deceleration := 12.0
 
+var bottle_scn = "res://throw_bottle.tscn"
+var holding := true
+var stamina := 100
+var money := 0
 var current_speed := 0.0
 var tweening := false
 var viewing := false
@@ -35,10 +39,12 @@ func _unhandled_input(event: InputEvent) -> void:
 	if is_hiding:
 		return
 
-	# ADD THIS
 	if viewing:
 		return
-
+	
+	if camera_locked:
+		return
+	
 	if event is InputEventMouseButton:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	elif event.is_action_pressed("ui_cancel"):
@@ -94,6 +100,9 @@ func get_interactable_component_at_shapecast() -> InteractableComponent:
 	for i in %InteractShapeCast.get_collision_count():
 		if i > 0 and %InteractShapeCast.get_collider(0) != $".":
 			return null
+		if %InteractShapeCast.get_collider(i) == null:
+			print("it null")
+			return null
 		if %InteractShapeCast.get_collider(i).get_node_or_null("InteractableComponent") is InteractableComponent:
 			return %InteractShapeCast.get_collider(i).get_node_or_null("InteractableComponent")
 	return null
@@ -101,7 +110,14 @@ func get_interactable_component_at_shapecast() -> InteractableComponent:
 func _physics_process(delta: float) -> void:
 	var input_dir = Input.get_vector("left", "right", "up", "down").normalized()
 	wish_dir = self.global_transform.basis * Vector3(input_dir.x, 0., input_dir.y)
+	var text_shown = "Money: %d" % money
+	$Head/Camera3D/Label3D.text = text_shown
 	
+	if viewing == true:
+		$Head/Camera3D/Sprite3D.visible = false
+		$ShopMenu.visible = true
+	elif viewing == false:
+		$ShopMenu.visible = false
 	if camera_locked:
 		move_and_slide()
 		return
@@ -126,6 +142,15 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 	
+	#Stamina
+	#print(stamina)
+	if stamina > 100:
+		stamina = 100
+	if get_move_speed() == sprint_speed:
+		stamina -= 1
+	elif get_move_speed() != sprint_speed:
+		stamina += 1
+
 
 func emit_sound(pos: Vector3, loudness: float):
 	var enemies = get_tree().get_nodes_in_group("enemy")
@@ -159,9 +184,6 @@ func throw_bottle():
 	bottle.apply_impulse(Vector3.ZERO, force)
 	
 
-# ========================
-# INVENTORY
-# ========================
 @export var max_slots := 3
 
 var inventory: Array = []
@@ -222,11 +244,6 @@ func exit_hiding():
 	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
-
-
-#func _ready():
-#	original_camera_transform = camera.global_transform
-
 @onready var head = $Head
 @onready var camera = $Head/Camera3D
 
@@ -234,13 +251,13 @@ var camera_locked := false
 
 var saved_head_transform : Transform3D
 
-
 func toggle_camera(target_pos: Vector3, look_at_pos: Vector3, duration := 1.0):
 
-	if !can_toggle_camera:
+	if !can_toggle_camera or camera_locked:
 		return
 
 	can_toggle_camera = false
+	camera_locked = true
 
 	var tween = create_tween()
 	tween.set_trans(Tween.TRANS_SINE)
@@ -256,6 +273,9 @@ func toggle_camera(target_pos: Vector3, look_at_pos: Vector3, duration := 1.0):
 		target.origin = target_pos
 		target = target.looking_at(look_at_pos, Vector3.UP)
 
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		$"../StaticBody3D3/MeshInstance3D".visible = false
+
 		tween.tween_property(
 			head,
 			"global_transform",
@@ -263,11 +283,13 @@ func toggle_camera(target_pos: Vector3, look_at_pos: Vector3, duration := 1.0):
 			duration
 		)
 
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-
 	else:
 
 		viewing = false
+
+		$Head/Camera3D/Sprite3D.visible = false
+
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 		tween.tween_property(
 			head,
@@ -276,9 +298,11 @@ func toggle_camera(target_pos: Vector3, look_at_pos: Vector3, duration := 1.0):
 			duration
 		)
 
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-
 	tween.finished.connect(func():
+		camera_locked = false
+		
 		await get_tree().create_timer(0.25).timeout
 		can_toggle_camera = true
 	)
+
+	get_interactable_component_at_shapecast().interact_with()

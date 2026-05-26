@@ -8,14 +8,16 @@ extends StaticBody3D
 
 func update_shop():
 	if open:
-		$MeshInstance3D2.visible = true
+		$"../player/Head/Camera3D/Sprite3D".visible = true
+		$"../player".visible = true
 	else:
-		$MeshInstance3D2.visible = false
+		$"../player/Head/Camera3D/Sprite3D".visible = false
+		$"../player".visible = true
 
 func _process(delta: float) -> void:
-	$MeshInstance3D.visible = !!$InteractableComponent.get_character_hovered_by_cur_camera()
-	if $MeshInstance3D.visible == true:
-		print("it bds")
+	if $"../player".viewing == false:
+		$"../player/Head/Camera3D/Sprite3D".visible = !!$InteractableComponent.get_character_hovered_by_cur_camera()
+		
 
 func toggle_open():
 	open = !open

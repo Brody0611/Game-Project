@@ -4,8 +4,10 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7k104"]
 albedo_color = Color(1, 0, 0, 1)
+metallic_specular = 1.0
+roughness = 0.0
 
-[sub_resource type="PrismMesh" id="PrismMesh_4gyqm"]
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_4gyqm"]
 material = SubResource("StandardMaterial3D_7k104")
 
 [node name="enemy" type="CharacterBody3D" unique_id=42562581 groups=["enemy"]]
@@ -21,4 +23,5 @@ target_position = Vector3(0, 0, -20)
 [node name="Timer" type="Timer" parent="." unique_id=165093158]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=912357476]
-mesh = SubResource("PrismMesh_4gyqm")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_4gyqm")

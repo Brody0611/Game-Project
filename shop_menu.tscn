@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://fg7tixd83npy"]
+
+[ext_resource type="Script" uid="uid://dw7il4hn4joht" path="res://shop_menu.gd" id="1_u8hot"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rh1mo"]
+bg_color = Color(0.27314222, 0.27314225, 0.27314213, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u8hot"]
+bg_color = Color(0.015686275, 0.015686275, 0.015686275, 0.73333335)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_68nve"]
+bg_color = Color(0.27450982, 0.27450982, 0.27450982, 0.6627451)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xn0n2"]
+bg_color = Color(0.015686275, 0.015686275, 0.015686275, 0.73333335)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[node name="ShopMenu" type="Control" unique_id=574277595]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u8hot")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1223246564]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -127.0
+offset_top = -86.0
+offset_right = 127.0
+offset_bottom = 86.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1924762782]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer" unique_id=717204250]
+layout_mode = 2
+theme_override_font_sizes/font_size = 61
+theme_override_styles/normal = SubResource("StyleBoxFlat_rh1mo")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_u8hot")
+theme_override_styles/hover = SubResource("StyleBoxFlat_68nve")
+text = "Button"
+
+[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1039758508]
+layout_mode = 2
+theme_override_font_sizes/font_size = 61
+theme_override_styles/normal = SubResource("StyleBoxFlat_rh1mo")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xn0n2")
+theme_override_styles/hover = SubResource("StyleBoxFlat_68nve")
+text = "Button 2"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Button" to="." method="_on_button1_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]

@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dcjv2um1q4nr1" path="res://GameProjectTextures/wall_angle.jpg" id="1_0fbet"]
 [ext_resource type="Texture2D" uid="uid://cuinf5vih7x5f" path="res://GameProjectTextures/panelscreen.jpg" id="2_62e2m"]
 [ext_resource type="Texture2D" uid="uid://b01htgcqyi32j" path="res://GameProjectTextures/panel buttons.jpg" id="2_qtu10"]
+[ext_resource type="Texture2D" uid="uid://dqr368phwctgd" path="res://GameProjectTextures/concrete.jpg" id="4_ee4bf"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_62e2m"]
 albedo_texture = ExtResource("1_0fbet")
@@ -94,6 +95,22 @@ albedo_color = Color(0, 0, 0, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_sky72"]
 material = SubResource("StandardMaterial3D_6a6wx")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iy58a"]
+albedo_texture = ExtResource("4_ee4bf")
+uv1_scale = Vector3(1, 2.63, 1)
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_6a6wx"]
+material = SubResource("StandardMaterial3D_iy58a")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sky72"]
+albedo_texture = ExtResource("4_ee4bf")
+uv1_scale = Vector3(1, 2.655, 1)
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_0ytqx"]
+material = SubResource("StandardMaterial3D_sky72")
+
 [node name="Control" type="Node3D" unique_id=1723177417]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=712345507]
@@ -125,3 +142,19 @@ mesh = SubResource("ArrayMesh_iy58a")
 [node name="MeshInstance3D5" type="MeshInstance3D" parent="." unique_id=332491951]
 transform = Transform3D(0.02, 0, 0, 0, 0.155, 0, 0, 0, 0.02, -1.5209587, 0.9336215, -0.32443193)
 mesh = SubResource("BoxMesh_sky72")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="." unique_id=48174262]
+transform = Transform3D(0.125, 0, 0, 0, 1.535, 0, 0, 0, 0.455, 2.19, 0.17, -0.3)
+mesh = SubResource("BoxMesh_6a6wx")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="." unique_id=507178081]
+transform = Transform3D(0.125, 0, 0, 0, 1.535, 0, 0, 0, 0.455, -2.19, 0.17, -0.3)
+mesh = SubResource("BoxMesh_6a6wx")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="." unique_id=1076285516]
+transform = Transform3D(0.125, 0, 0, 0, 1.1279422, 0, 0, 0, 0.62804544, -2.1710396, -0.059997216, 0.22293377)
+mesh = SubResource("BoxMesh_0ytqx")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="." unique_id=168076411]
+transform = Transform3D(0.125, 0, 0, 0, 1.1279422, 0, 0, 0, 0.62804544, 2.171, -0.06, 0.223)
+mesh = SubResource("BoxMesh_0ytqx")

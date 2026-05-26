@@ -3,11 +3,20 @@
 [ext_resource type="Script" uid="uid://bxptuhc6t65ih" path="res://Scripts/player.gd" id="1_4flbx"]
 [ext_resource type="Resource" uid="uid://c5afg1vaxhh2q" path="res://Models/BottleItem.tres" id="2_i3pqv"]
 [ext_resource type="Texture2D" uid="uid://bu0n1uuok233s" path="res://cookie_2.jpg" id="2_onrkg"]
+[ext_resource type="Script" uid="uid://co8ou1qy06l7j" path="res://camera_3d.gd" id="3_2hs0m"]
 [ext_resource type="PackedScene" uid="uid://bqhwihf7ps4jq" path="res://Models/bottle.tscn" id="4_hqtel"]
+[ext_resource type="Texture2D" uid="uid://cw0ksmmqeylyx" path="res://Screenshot_2026-05-11_161806-removebg-preview.png" id="5_sweqy"]
+[ext_resource type="AudioStream" uid="uid://d4nm6e8sjjld6" path="res://Step1.wav" id="7_dw050"]
+[ext_resource type="AudioStream" path="res://Step2.wav" id="8_b26j0"]
+[ext_resource type="PackedScene" uid="uid://fg7tixd83npy" path="res://shop_menu.tscn" id="9_b26j0"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4flbx"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_sh265"]
+
+[sub_resource type="Environment" id="Environment_2hs0m"]
+glow_enabled = true
+glow_normalized = true
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_hqtel"]
 radius = 0.25
@@ -18,18 +27,45 @@ shading_mode = 0
 [sub_resource type="SphereMesh" id="SphereMesh_sweqy"]
 material = SubResource("StandardMaterial3D_hqtel")
 
+[sub_resource type="Animation" id="Animation_dw050"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Step1:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Step2:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n7ghd"]
+_data = {
+&"RESET": SubResource("Animation_dw050")
+}
+
 [node name="player" type="CharacterBody3D" unique_id=1093883535 groups=["player"]]
+collision_layer = 13
+collision_mask = 13
 script = ExtResource("1_4flbx")
-look_sensitivity = null
 jump_velocity = 3.5
-auto_bhop = null
 walk_speed = 3.5
-sprint_speed = null
 bottle_item = ExtResource("2_i3pqv")
-acceleration = null
-sprint_acceleration = null
-deceleration = null
-max_slots = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1671350136]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -40,6 +76,7 @@ unique_name_in_owner = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="WorldModel" unique_id=1611442528]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+layers = 8
 mesh = SubResource("CapsuleMesh_sh265")
 
 [node name="Head" type="Node3D" parent="." unique_id=2049132555]
@@ -48,6 +85,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head" unique_id=1797532068]
 unique_name_in_owner = true
+environment = SubResource("Environment_2hs0m")
+script = ExtResource("3_2hs0m")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Head/Camera3D" unique_id=715634170]
 transform = Transform3D(1, 0, 0, 0, 0.9953962, 0.09584575, 0, -0.09584575, 0.9953962, 0, 0, -0.5)
@@ -64,13 +103,34 @@ unique_name_in_owner = true
 shape = SubResource("SphereShape3D_hqtel")
 target_position = Vector3(0, 0, -2)
 max_results = 2
-collision_mask = 3
+collision_mask = 2
 collide_with_areas = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Head/Camera3D" unique_id=1217656001]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, -0.14)
 mesh = SubResource("SphereMesh_sweqy")
 
+[node name="Sprite3D" type="Sprite3D" parent="Head/Camera3D" unique_id=1240450345]
+transform = Transform3D(0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, 0, -0.054999948, -0.13)
+visible = false
+texture = ExtResource("5_sweqy")
+
+[node name="Label3D" type="Label3D" parent="Head/Camera3D" unique_id=177769142]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -0.09, 0.055, -0.075)
+text = "Money: 0"
+
 [node name="Bottle" parent="." unique_id=704982289 instance=ExtResource("4_hqtel")]
 transform = Transform3D(0.961526, -0.2696044, -0.052737467, 0.026171817, -0.101198934, 0.99452186, -0.2734645, -0.9576388, -0.09024937, 0.502, 1.075, -0.43)
+visible = false
+
+[node name="Step1" type="AudioStreamPlayer3D" parent="." unique_id=2121304714]
+stream = ExtResource("7_dw050")
+
+[node name="Step2" type="AudioStreamPlayer3D" parent="." unique_id=1534966121]
+stream = ExtResource("8_b26j0")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1454309320]
+libraries/ = SubResource("AnimationLibrary_n7ghd")
+
+[node name="ShopMenu" parent="." unique_id=574277595 instance=ExtResource("9_b26j0")]
 visible = false

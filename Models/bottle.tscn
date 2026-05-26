@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ucpc882y3hlv" path="res://Scripts/bottle.gd" id="1_6k8ux"]
 [ext_resource type="PackedScene" uid="uid://1lcj8788r3cr" path="res://Models/bottlemodel.tscn" id="2_xiyir"]
+[ext_resource type="Script" uid="uid://d3atht3qr5ncj" path="res://Scripts/InteractableComponent.gd" id="3_85jej"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2l8b7"]
 radius = 0.15820313
@@ -9,8 +10,8 @@ height = 0.99975586
 
 [node name="Bottle" type="StaticBody3D" unique_id=704982289 groups=["bottle"]]
 disable_mode = 1
-collision_layer = 3
-collision_mask = 3
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_6k8ux")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1558214180]
@@ -19,3 +20,8 @@ shape = SubResource("CapsuleShape3D_2l8b7")
 
 [node name="Bottle" parent="." unique_id=871715831 instance=ExtResource("2_xiyir")]
 transform = Transform3D(0.062061694, -4.281019e-09, -0.1474732, -0.1474732, -6.4462586e-09, -0.062061694, -4.281019e-09, 0.16, -6.4462586e-09, 0, 0.105, -0.12)
+
+[node name="InteractableComponent" type="Node" parent="." unique_id=588773941]
+script = ExtResource("3_85jej")
+
+[connection signal="interacted" from="InteractableComponent" to="." method="_on_interactable_component_interacted"]

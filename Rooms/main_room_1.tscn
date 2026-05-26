@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://biua6hkbo30y3" path="res://GameProjectTextures/Dirtu-removebg-preview.png" id="16_y2p2q"]
 [ext_resource type="PackedScene" uid="uid://cpv3rmebyhb5e" path="res://enemy.tscn" id="17_yngsj"]
 [ext_resource type="Script" path="res://enemy.gd" id="18_xlc3y"]
+[ext_resource type="PackedScene" uid="uid://dgx8f7ttoxj5x" path="res://coin.tscn" id="19_8oien"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_me2im"]
 albedo_color = Color(0.7607843, 0.7607843, 0.7607843, 1)
@@ -560,3 +561,9 @@ mesh = SubResource("ArrayMesh_a11q6")
 [node name="Cube_006" type="MeshInstance3D" parent="." unique_id=387090890]
 transform = Transform3D(0.24381034, 0, -2.1314577e-08, 0, -0.2438103, 0, 2.1314577e-08, 0, 0.24381034, 5.4417944, 2.365848, -4.7426596)
 mesh = SubResource("ArrayMesh_a11q6")
+
+[node name="Coin" parent="." unique_id=904768177 instance=ExtResource("19_8oien")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1439881, 1.6856968, 2.3453302)
+
+[node name="Coin2" parent="." unique_id=550549605 instance=ExtResource("19_8oien")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.933256, 1.6856968, 1.1766424)

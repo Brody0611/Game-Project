@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://583cycyk780f"]
 
+[ext_resource type="Script" uid="uid://btnhesnb40mn1" path="res://world.gd" id="1_ic0uy"]
 [ext_resource type="Script" uid="uid://cqagsk8ghh08a" path="res://Scripts/generator.gd" id="1_tlwt5"]
 [ext_resource type="PackedScene" uid="uid://mpehgvhds6aa" path="res://Rooms/start_room.tscn" id="2_aqk2v"]
 [ext_resource type="PackedScene" uid="uid://psrvy3fo3lj1" path="res://Rooms/end_room.tscn" id="3_036b0"]
@@ -7,9 +8,12 @@
 [ext_resource type="PackedScene" uid="uid://b13djf1debkx1" path="res://Rooms/branch_room_1.tscn" id="5_dwbse"]
 [ext_resource type="PackedScene" uid="uid://cftfhugf360w" path="res://Rooms/main_room_2.tscn" id="5_pkg7o"]
 [ext_resource type="PackedScene" uid="uid://dhdx2s3pksgax" path="res://Rooms/branch_room_2.tscn" id="6_dwbse"]
+[ext_resource type="PackedScene" uid="uid://bgclukm03gar1" path="res://Rooms/main_room_3.tscn" id="8_70uel"]
 [ext_resource type="PackedScene" uid="uid://dm8kaelfm24q7" path="res://Rooms/main_room_5.tscn" id="8_k3n1d"]
+[ext_resource type="PackedScene" uid="uid://b57ixfg0w37na" path="res://Rooms/main_room_4.tscn" id="9_hiqwa"]
 [ext_resource type="PackedScene" uid="uid://bqhwihf7ps4jq" path="res://Models/bottle.tscn" id="10_ic0uy"]
 [ext_resource type="PackedScene" uid="uid://dnc8wy4iv1efs" path="res://player.tscn" id="10_wse8f"]
+[ext_resource type="PackedScene" uid="uid://cmdk7fxgxt0gs" path="res://throw_bottle.tscn" id="12_k3n1d"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ioo17"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -35,7 +39,11 @@ fog_depth_end = 50.0
 geometry_parsed_geometry_type = 0
 agent_radius = 0.7
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_wse8f"]
+viewport_path = NodePath("player/SubViewport")
+
 [node name="world" type="Node3D" unique_id=1817246388]
+script = ExtResource("1_ic0uy")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=499647072]
 transform = Transform3D(0.5849011, -0.7024373, 0.40555224, 2.7805946e-08, 0.49999994, 0.86602545, -0.81110466, -0.5065392, 0.2924505, 17.01496, 10.933898, 19.75841)
@@ -48,14 +56,20 @@ environment = SubResource("Environment_ic0uy")
 script = ExtResource("1_tlwt5")
 start_room = ExtResource("2_aqk2v")
 end_room = ExtResource("3_036b0")
-main_rooms = Array[PackedScene]([ExtResource("8_k3n1d"), ExtResource("5_pkg7o"), ExtResource("4_036b0")])
+main_rooms = Array[PackedScene]([ExtResource("8_k3n1d"), ExtResource("5_pkg7o"), ExtResource("4_036b0"), ExtResource("8_70uel"), ExtResource("9_hiqwa")])
 branch_rooms = Array[PackedScene]([ExtResource("5_dwbse"), ExtResource("6_dwbse")])
 bottle_scene = ExtResource("10_ic0uy")
-main_length = 3
-branch_count = 1
+main_length = 5
+branch_count = 2
 
 [node name="player" parent="." unique_id=1093883535 instance=ExtResource("10_wse8f")]
 transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 0, 0, -2.9859738)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=257635433]
 navigation_mesh = SubResource("NavigationMesh_gbfbk")
+
+[node name="Sprite3D9" type="Sprite3D" parent="." unique_id=1402336201]
+transform = Transform3D(-0.07407504, 0, -0.4641259, 0, 0.47000006, 0, 0.4641259, 0, -0.07407504, 6.385529, 3.0900302, 0.23352093)
+texture = SubResource("ViewportTexture_wse8f")
+
+[node name="ThrowBottle" parent="." unique_id=1750673870 instance=ExtResource("12_k3n1d")]

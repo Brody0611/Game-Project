@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://dgx8f7ttoxj5x"]
+
+[ext_resource type="Script" uid="uid://dhu18i7t7t573" path="res://coin.gd" id="1_0t63x"]
+[ext_resource type="Texture2D" uid="uid://b2wfq6ac2b081" path="res://Screenshot_2026-05-18_155044-removebg-preview.png" id="2_0t63x"]
+[ext_resource type="Texture2D" uid="uid://dnpu823cwlbdh" path="res://GameProjectTextures/yellow.jpg" id="3_v7riw"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_0t63x"]
+radius = 1.0
+
+[sub_resource type="Animation" id="Animation_d5gmh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_0t63x"]
+resource_name = "float"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.96666664, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.265, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v7riw"]
+_data = {
+&"RESET": SubResource("Animation_d5gmh"),
+&"float": SubResource("Animation_0t63x")
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pdq0q"]
+albedo_texture = ExtResource("3_v7riw")
+emission = Color(0.616676, 0.616676, 0, 1)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0t63x"]
+emission_shape_scale = Vector3(0.01, 0.01, 0.01)
+direction = Vector3(1, 1, 1)
+spread = 180.0
+initial_velocity_max = 1.0
+gravity = Vector3(0, -1.57, 0)
+scale_min = 0.0
+scale_max = 0.14999999
+color = Color(1, 0.5176471, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_v7riw"]
+
+[node name="Coin" type="Area3D" unique_id=904768177]
+script = ExtResource("1_0t63x")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=262564737]
+transform = Transform3D(0.205, 0, 0, 0, 0.205, 0, 0, 0, 0.205, 0, 0, 0)
+billboard = 2
+texture = ExtResource("2_0t63x")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=553831898]
+transform = Transform3D(0.33, 0, 0, 0, 0.33, 0, 0, 0, 0.33, 0, 0.4575374, 0)
+shape = SubResource("SphereShape3D_0t63x")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=591207974]
+libraries/ = SubResource("AnimationLibrary_v7riw")
+autoplay = &"float"
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=386290393]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2690618, 0)
+material_override = SubResource("StandardMaterial3D_pdq0q")
+emitting = false
+amount = 20
+lifetime = 2.3099999999999996
+one_shot = true
+speed_scale = 2.38
+explosiveness = 1.0
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_0t63x")
+draw_pass_1 = SubResource("SphereMesh_v7riw")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
