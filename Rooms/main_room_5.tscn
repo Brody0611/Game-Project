@@ -290,7 +290,7 @@ mesh = SubResource("BoxMesh_lcb3j")
 
 [node name="room_mesh" type="Node3D" parent="." unique_id=1729398237]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="room_mesh" unique_id=1882873315]
+[node name="StaticBody3D" type="StaticBody3D" parent="room_mesh" unique_id=1882873315 groups=["wall"]]
 collision_layer = 15
 collision_mask = 15
 

@@ -135,6 +135,102 @@ size = Vector3(1, 0.8272705, 1)
 
 [sub_resource type="PrismMesh" id="PrismMesh_g26o6"]
 
+[sub_resource type="FontFile" id="FontFile_bufr4"]
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/37/0/ascent = 0.0
+cache/0/37/0/descent = 0.0
+cache/0/37/0/underline_position = 0.0
+cache/0/37/0/underline_thickness = 0.0
+cache/0/37/0/scale = 1.0
+cache/0/40/0/ascent = 0.0
+cache/0/40/0/descent = 0.0
+cache/0/40/0/underline_position = 0.0
+cache/0/40/0/underline_thickness = 0.0
+cache/0/40/0/scale = 1.0
+cache/0/41/0/ascent = 0.0
+cache/0/41/0/descent = 0.0
+cache/0/41/0/underline_position = 0.0
+cache/0/41/0/underline_thickness = 0.0
+cache/0/41/0/scale = 1.0
+cache/0/44/0/ascent = 0.0
+cache/0/44/0/descent = 0.0
+cache/0/44/0/underline_position = 0.0
+cache/0/44/0/underline_thickness = 0.0
+cache/0/44/0/scale = 1.0
+cache/0/45/0/ascent = 0.0
+cache/0/45/0/descent = 0.0
+cache/0/45/0/underline_position = 0.0
+cache/0/45/0/underline_thickness = 0.0
+cache/0/45/0/scale = 1.0
+cache/0/46/0/ascent = 0.0
+cache/0/46/0/descent = 0.0
+cache/0/46/0/underline_position = 0.0
+cache/0/46/0/underline_thickness = 0.0
+cache/0/46/0/scale = 1.0
+cache/0/48/0/ascent = 0.0
+cache/0/48/0/descent = 0.0
+cache/0/48/0/underline_position = 0.0
+cache/0/48/0/underline_thickness = 0.0
+cache/0/48/0/scale = 1.0
+cache/0/49/0/ascent = 0.0
+cache/0/49/0/descent = 0.0
+cache/0/49/0/underline_position = 0.0
+cache/0/49/0/underline_thickness = 0.0
+cache/0/49/0/scale = 1.0
+cache/0/50/0/ascent = 0.0
+cache/0/50/0/descent = 0.0
+cache/0/50/0/underline_position = 0.0
+cache/0/50/0/underline_thickness = 0.0
+cache/0/50/0/scale = 1.0
+cache/0/51/0/ascent = 0.0
+cache/0/51/0/descent = 0.0
+cache/0/51/0/underline_position = 0.0
+cache/0/51/0/underline_thickness = 0.0
+cache/0/51/0/scale = 1.0
+cache/0/52/0/ascent = 0.0
+cache/0/52/0/descent = 0.0
+cache/0/52/0/underline_position = 0.0
+cache/0/52/0/underline_thickness = 0.0
+cache/0/52/0/scale = 1.0
+cache/0/53/0/ascent = 0.0
+cache/0/53/0/descent = 0.0
+cache/0/53/0/underline_position = 0.0
+cache/0/53/0/underline_thickness = 0.0
+cache/0/53/0/scale = 1.0
+cache/0/54/0/ascent = 0.0
+cache/0/54/0/descent = 0.0
+cache/0/54/0/underline_position = 0.0
+cache/0/54/0/underline_thickness = 0.0
+cache/0/54/0/scale = 1.0
+cache/0/47/0/ascent = 0.0
+cache/0/47/0/descent = 0.0
+cache/0/47/0/underline_position = 0.0
+cache/0/47/0/underline_thickness = 0.0
+cache/0/47/0/scale = 1.0
+cache/0/43/0/ascent = 0.0
+cache/0/43/0/descent = 0.0
+cache/0/43/0/underline_position = 0.0
+cache/0/43/0/underline_thickness = 0.0
+cache/0/43/0/scale = 1.0
+cache/0/42/0/ascent = 0.0
+cache/0/42/0/descent = 0.0
+cache/0/42/0/underline_position = 0.0
+cache/0/42/0/underline_thickness = 0.0
+cache/0/42/0/scale = 1.0
+
 [node name="Lobby" type="Node3D" unique_id=1059975577]
 script = ExtResource("1_wjc17")
 
@@ -142,7 +238,7 @@ script = ExtResource("1_wjc17")
 transform = Transform3D(-0.77932996, -0.61000484, 0.14331482, 0.006507645, 0.22082157, 0.9752927, -0.6265802, 0.7610074, -0.16812311, 0, 0, 0)
 shadow_enabled = true
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1919426744]
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1919426744 groups=["wall"]]
 collision_layer = 15
 collision_mask = 15
 
@@ -173,6 +269,10 @@ mesh = SubResource("BoxMesh_1gg6n")
 
 [node name="MeshInstance3D11" type="MeshInstance3D" parent="." unique_id=835446366 groups=["navmesh"]]
 transform = Transform3D(-2.3572538e-08, 0, 1.1555748, 0, 8.34, 0, -0.53927684, 0, -5.051178e-08, 5.135, 3.2051632, -2.718)
+mesh = SubResource("BoxMesh_1gg6n")
+
+[node name="MeshInstance3D31" type="MeshInstance3D" parent="." unique_id=1976194771 groups=["navmesh"]]
+transform = Transform3D(-2.3572538e-08, 0, 1.1555748, 0, 2.8826332, 0, -0.53927684, 0, -5.051178e-08, 0.050860405, 6.387759, -2.764216)
 mesh = SubResource("BoxMesh_1gg6n")
 
 [node name="MeshInstance3D13" type="MeshInstance3D" parent="." unique_id=26333934 groups=["navmesh"]]
@@ -378,7 +478,7 @@ collision_mask = 2
 transform = Transform3D(2.955, 0, 0, 0, 2.955, 0, 0, 0, 2.955, 0, 2, -6.314291)
 shape = SubResource("BoxShape3D_hx1n1")
 
-[node name="StaticBody3D2" type="StaticBody3D" parent="." unique_id=961121274]
+[node name="StaticBody3D2" type="StaticBody3D" parent="." unique_id=961121274 groups=["wall"]]
 collision_layer = 2
 collision_mask = 2
 physics_material_override = SubResource("PhysicsMaterial_wjc17")
@@ -475,7 +575,7 @@ transform = Transform3D(1.62, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.385, -2.6937864)
 modulate = Color(0.42595553, 0.42595553, 0.4259555, 1)
 texture = ExtResource("23_o6dcp")
 
-[node name="Collisions" type="StaticBody3D" parent="." unique_id=910619286]
+[node name="Collisions" type="StaticBody3D" parent="." unique_id=910619286 groups=["wall"]]
 collision_layer = 15
 collision_mask = 15
 
@@ -511,7 +611,7 @@ shape = SubResource("BoxShape3D_g26o6")
 transform = Transform3D(0.65081203, 0, -0.2577667, 0, 1.01, 0, 0.2577667, 0, 0.65081203, -5.41, 1, -1.24)
 shape = SubResource("BoxShape3D_5du7p")
 
-[node name="StaticBody3D3" type="StaticBody3D" parent="." unique_id=1136835961]
+[node name="StaticBody3D3" type="StaticBody3D" parent="." unique_id=1136835961 groups=["wall"]]
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("24_g26o6")
@@ -542,6 +642,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.20938826, 0)
 [node name="Hoop" parent="." unique_id=1059024978 instance=ExtResource("29_kxcl2")]
 transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, 0, 2.435, 5.815)
 
+[node name="Label3D2" type="Label3D" parent="." unique_id=951820576]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 2.0843577, 3.5012512, 6.639829)
+modulate = Color(0.23248088, 0.23248091, 0.23248091, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = "Press V to Throw Bottle"
+font = SubResource("FontFile_bufr4")
+font_size = 41
+
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
-[connection signal="interacted" from="StaticBody3D3/InteractableComponent" to="StaticBody3D3" method="_on_interactable_component_interacted"]
 [connection signal="interacted" from="StaticBody3D3/InteractableComponent" to="StaticBody3D3" method="toggle_open"]
+[connection signal="interacted" from="StaticBody3D3/InteractableComponent" to="StaticBody3D3" method="_on_interactable_component_interacted"]

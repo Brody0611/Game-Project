@@ -1,13 +1,57 @@
 [gd_scene format=3 uid="uid://cmdk7fxgxt0gs"]
 
+[ext_resource type="Script" uid="uid://b2lpkokn03vun" path="res://throw_bottle.gd" id="1_1yxmu"]
 [ext_resource type="PackedScene" uid="uid://1lcj8788r3cr" path="res://Models/bottlemodel.tscn" id="1_n8prn"]
+[ext_resource type="Texture2D" uid="uid://bmwvnug7gpogi" path="res://GameProjectTextures/bottle.jpg" id="2_tv2cw"]
+[ext_resource type="AudioStream" uid="uid://dav2ba8mns3b5" path="res://BottleBreak.wav" id="4_0be8v"]
+[ext_resource type="AudioStream" uid="uid://x8dhf8djq5sx" path="res://explosion.wav" id="5_dx7fl"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_tv2cw"]
 data = PackedVector3Array(0, -1.555, -0.75, 0.53029996, 1.555, -0.53029996, 0, 1.555, -0.75, 0, -1.555, -0.75, 0.53029996, -1.555, -0.53029996, 0.53029996, 1.555, -0.53029996, 0.53029996, -1.555, -0.53029996, 0.75, 1.555, 0, 0.53029996, 1.555, -0.53029996, 0.53029996, -1.555, -0.53029996, 0.75, -1.555, 0, 0.75, 1.555, 0, 0.75, -1.555, 0, 0.53029996, 1.555, 0.53029996, 0.75, 1.555, 0, 0.75, -1.555, 0, 0.53029996, -1.555, 0.53029996, 0.53029996, 1.555, 0.53029996, 0.53029996, -1.555, 0.53029996, 0, 1.555, 0.75, 0.53029996, 1.555, 0.53029996, 0.53029996, -1.555, 0.53029996, 0, -1.555, 0.75, 0, 1.555, 0.75, 0, -1.555, 0.75, -0.53029996, 1.555, 0.53029996, 0, 1.555, 0.75, 0, -1.555, 0.75, -0.53029996, -1.555, 0.53029996, -0.53029996, 1.555, 0.53029996, -0.53029996, -1.555, 0.53029996, -0.75, 1.555, 0, -0.53029996, 1.555, 0.53029996, -0.53029996, -1.555, 0.53029996, -0.75, -1.555, 0, -0.75, 1.555, 0, -0.3728, 1.908, 0, -0.2636, 3.2493, 0.2636, -0.2636, 1.908, 0.2636, -0.3728, 1.908, 0, -0.3728, 3.2493, 0, -0.2636, 3.2493, 0.2636, -0.75, -1.555, 0, -0.53029996, 1.555, -0.53029996, -0.75, 1.555, 0, -0.75, -1.555, 0, -0.53029996, -1.555, -0.53029996, -0.53029996, 1.555, -0.53029996, -0.53029996, -1.555, -0.53029996, 0, 1.555, -0.75, -0.53029996, 1.555, -0.53029996, -0.53029996, -1.555, -0.53029996, 0, -1.555, -0.75, 0, 1.555, -0.75, -0.53029996, -1.555, -0.53029996, 0.53029996, -1.555, -0.53029996, 0, -1.555, -0.75, -0.53029996, -1.555, -0.53029996, 0.53029996, -1.555, 0.53029996, 0.53029996, -1.555, -0.53029996, 0.53029996, -1.555, -0.53029996, 0.53029996, -1.555, 0.53029996, 0.75, -1.555, 0, 0.53029996, -1.555, 0.53029996, -0.53029996, -1.555, -0.53029996, -0.53029996, -1.555, 0.53029996, -0.53029996, -1.555, 0.53029996, -0.53029996, -1.555, -0.53029996, -0.75, -1.555, 0, 0.53029996, -1.555, 0.53029996, -0.53029996, -1.555, 0.53029996, 0, -1.555, 0.75, 0, 1.908, -0.3728, 0.53029996, 1.555, -0.53029996, 0.2636, 1.908, -0.2636, 0, 1.908, -0.3728, 0, 1.555, -0.75, 0.53029996, 1.555, -0.53029996, 0.2636, 1.908, -0.2636, 0.75, 1.555, 0, 0.3728, 1.908, 0, 0.2636, 1.908, -0.2636, 0.53029996, 1.555, -0.53029996, 0.75, 1.555, 0, 0.3728, 1.908, 0, 0.53029996, 1.555, 0.53029996, 0.2636, 1.908, 0.2636, 0.3728, 1.908, 0, 0.75, 1.555, 0, 0.53029996, 1.555, 0.53029996, 0.2636, 1.908, 0.2636, 0, 1.555, 0.75, 0, 1.908, 0.3728, 0.2636, 1.908, 0.2636, 0.53029996, 1.555, 0.53029996, 0, 1.555, 0.75, 0, 1.908, 0.3728, -0.53029996, 1.555, 0.53029996, -0.2636, 1.908, 0.2636, 0, 1.908, 0.3728, 0, 1.555, 0.75, -0.53029996, 1.555, 0.53029996, -0.2636, 1.908, 0.2636, -0.75, 1.555, 0, -0.3728, 1.908, 0, -0.2636, 1.908, 0.2636, -0.53029996, 1.555, 0.53029996, -0.75, 1.555, 0, -0.3728, 1.908, 0, -0.53029996, 1.555, -0.53029996, -0.2636, 1.908, -0.2636, -0.3728, 1.908, 0, -0.75, 1.555, 0, -0.53029996, 1.555, -0.53029996, -0.2636, 1.908, -0.2636, 0, 1.555, -0.75, 0, 1.908, -0.3728, -0.2636, 1.908, -0.2636, -0.53029996, 1.555, -0.53029996, 0, 1.555, -0.75, 0.3728, 3.2493, 0, 0, 3.2493, -0.3728, 0.2636, 3.2493, -0.2636, 0.3728, 3.2493, 0, -0.3728, 3.2493, 0, 0, 3.2493, -0.3728, 0, 3.2493, -0.3728, -0.3728, 3.2493, 0, -0.2636, 3.2493, -0.2636, -0.3728, 3.2493, 0, 0.3728, 3.2493, 0, 0, 3.2493, 0.3728, 0, 3.2493, 0.3728, 0.3728, 3.2493, 0, 0.2636, 3.2493, 0.2636, -0.3728, 3.2493, 0, 0, 3.2493, 0.3728, -0.2636, 3.2493, 0.2636, 0, 1.908, 0.3728, 0.2636, 3.2493, 0.2636, 0.2636, 1.908, 0.2636, 0, 1.908, 0.3728, 0, 3.2493, 0.3728, 0.2636, 3.2493, 0.2636, 0.3728, 1.908, 0, 0.2636, 3.2493, -0.2636, 0.2636, 1.908, -0.2636, 0.3728, 1.908, 0, 0.3728, 3.2493, 0, 0.2636, 3.2493, -0.2636, -0.2636, 1.908, -0.2636, -0.3728, 3.2493, 0, -0.3728, 1.908, 0, -0.2636, 1.908, -0.2636, -0.2636, 3.2493, -0.2636, -0.3728, 3.2493, 0, -0.2636, 1.908, 0.2636, 0, 3.2493, 0.3728, 0, 1.908, 0.3728, -0.2636, 1.908, 0.2636, -0.2636, 3.2493, 0.2636, 0, 3.2493, 0.3728, 0.2636, 1.908, 0.2636, 0.3728, 3.2493, 0, 0.3728, 1.908, 0, 0.2636, 1.908, 0.2636, 0.2636, 3.2493, 0.2636, 0.3728, 3.2493, 0, 0.2636, 1.908, -0.2636, 0, 3.2493, -0.3728, 0, 1.908, -0.3728, 0.2636, 1.908, -0.2636, 0.2636, 3.2493, -0.2636, 0, 3.2493, -0.3728, 0, 1.908, -0.3728, -0.2636, 3.2493, -0.2636, -0.2636, 1.908, -0.2636, 0, 1.908, -0.3728, 0, 3.2493, -0.3728, -0.2636, 3.2493, -0.2636)
 
+[sub_resource type="Curve" id="Curve_1yxmu"]
+_limits = [-360.0, 360.0, -180.0, 180.0]
+_data = [Vector2(0, -258.52344), 0.0, 0.0, 0, 0, Vector2(0.945783, 360), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_0be8v"]
+curve = SubResource("Curve_1yxmu")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dx7fl"]
+emission_shape_scale = Vector3(0.29, 0.445, 0.2)
+emission_shape = 1
+emission_sphere_radius = 1.0
+angle_min = -179.99998
+angle_max = 180.00002
+angle_curve = SubResource("CurveTexture_0be8v")
+direction = Vector3(10, 10, 10)
+spread = 180.0
+initial_velocity_min = 1.0
+initial_velocity_max = 10.0
+angular_velocity_min = -180.00002
+angular_velocity_max = 179.99998
+orbit_velocity_min = -0.7699999
+orbit_velocity_max = 9.49949e-08
+collision_mode = 1
+collision_friction = 1.0
+collision_bounce = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0be8v"]
+albedo_color = Color(0, 1, 0, 0)
+albedo_texture = ExtResource("2_tv2cw")
+uv1_triplanar = true
+
+[sub_resource type="PrismMesh" id="PrismMesh_u8bff"]
+material = SubResource("StandardMaterial3D_0be8v")
+size = Vector3(0.15, 0.15, 0.15)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_0be8v"]
+
 [node name="ThrowBottle" type="RigidBody3D" unique_id=1701532843]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
 collision_layer = 2
 collision_mask = 2
+script = ExtResource("1_1yxmu")
 
 [node name="Bottle" parent="." unique_id=871715831 instance=ExtResource("1_n8prn")]
 transform = Transform3D(0.195, 0, 0, 0, 0.195, 0, 0, 0, 0.195, 0, 0, 0)
@@ -15,3 +59,27 @@ transform = Transform3D(0.195, 0, 0, 0, 0.195, 0, 0, 0, 0.195, 0, 0, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=976976881]
 transform = Transform3D(0.195, 0, 0, 0, 0.195, 0, 0, 0, 0.195, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_tv2cw")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=1119298743]
+emitting = false
+one_shot = true
+explosiveness = 1.0
+randomness = 0.17
+process_material = SubResource("ParticleProcessMaterial_dx7fl")
+draw_pass_1 = SubResource("PrismMesh_u8bff")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=344632474]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=334953011]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.145, 0)
+shape = SubResource("SphereShape3D_0be8v")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1846390305]
+stream = ExtResource("4_0be8v")
+
+[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="." unique_id=1365615959]
+stream = ExtResource("5_dx7fl")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

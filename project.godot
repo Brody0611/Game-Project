@@ -26,6 +26,7 @@ room=""
 bottle_spawn=""
 bottle=""
 locker=""
+wall=""
 
 [input]
 

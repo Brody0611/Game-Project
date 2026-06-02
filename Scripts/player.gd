@@ -13,7 +13,7 @@ class_name Player
 @export var sprint_acceleration := 10.0
 @export var deceleration := 12.0
 
-var bottle_scn = "res://throw_bottle.tscn"
+const bottle_scn = preload("res://throw_bottle.tscn")
 var holding := true
 var stamina := 100
 var money := 0
@@ -168,21 +168,16 @@ func _input(event):
 			throw_bottle()
 
 func throw_bottle():
-	if held_bottle == null:
-		return
-	
-	var bottle = held_bottle
-	held_bottle = null
-	
-	remove_child(bottle)
-	get_parent().add_child(bottle)
-	
-	bottle.global_position = global_position + -transform.basis.z * 1.5
-	bottle.freeze = false
-	
-	var force = -transform.basis.z * 15.0
-	bottle.apply_impulse(Vector3.ZERO, force)
-	
+	if holding == false:
+		return null
+	var direction = -$player/Head/Camera3D.global_transform.basis.z.normalized() + Vector3(0,.4,0)
+	var new_bottle = bottle_scn.instantiate()
+	add_child(new_bottle)
+	new_bottle.rotation = Vector3(randf(),randf(),randf())
+	new_bottle.global_position = $player/Head/BottleSpawn.global_position
+	new_bottle.gravity_scale = 2
+	new_bottle.apply_central_impulse(direction * 17)
+	print("trow")
 
 @export var max_slots := 3
 

@@ -4,10 +4,10 @@
 [ext_resource type="Resource" uid="uid://c5afg1vaxhh2q" path="res://Models/BottleItem.tres" id="2_i3pqv"]
 [ext_resource type="Texture2D" uid="uid://bu0n1uuok233s" path="res://cookie_2.jpg" id="2_onrkg"]
 [ext_resource type="Script" uid="uid://co8ou1qy06l7j" path="res://camera_3d.gd" id="3_2hs0m"]
+[ext_resource type="PackedScene" uid="uid://cmdk7fxgxt0gs" path="res://throw_bottle.tscn" id="3_b26j0"]
 [ext_resource type="PackedScene" uid="uid://bqhwihf7ps4jq" path="res://Models/bottle.tscn" id="4_hqtel"]
 [ext_resource type="Texture2D" uid="uid://cw0ksmmqeylyx" path="res://Screenshot_2026-05-11_161806-removebg-preview.png" id="5_sweqy"]
 [ext_resource type="AudioStream" uid="uid://d4nm6e8sjjld6" path="res://Step1.wav" id="7_dw050"]
-[ext_resource type="AudioStream" path="res://Step2.wav" id="8_b26j0"]
 [ext_resource type="PackedScene" uid="uid://fg7tixd83npy" path="res://shop_menu.tscn" id="9_b26j0"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4flbx"]
@@ -66,6 +66,7 @@ script = ExtResource("1_4flbx")
 jump_velocity = 3.5
 walk_speed = 3.5
 bottle_item = ExtResource("2_i3pqv")
+bottle_scn = ExtResource("3_b26j0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1671350136]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -119,6 +120,9 @@ texture = ExtResource("5_sweqy")
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -0.09, 0.055, -0.075)
 text = "Money: 0"
 
+[node name="BottleSpawn" type="Node3D" parent="Head" unique_id=378719754]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4162023, -0.7582879)
+
 [node name="Bottle" parent="." unique_id=704982289 instance=ExtResource("4_hqtel")]
 transform = Transform3D(0.961526, -0.2696044, -0.052737467, 0.026171817, -0.101198934, 0.99452186, -0.2734645, -0.9576388, -0.09024937, 0.502, 1.075, -0.43)
 visible = false
@@ -127,7 +131,6 @@ visible = false
 stream = ExtResource("7_dw050")
 
 [node name="Step2" type="AudioStreamPlayer3D" parent="." unique_id=1534966121]
-stream = ExtResource("8_b26j0")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1454309320]
 libraries/ = SubResource("AnimationLibrary_n7ghd")

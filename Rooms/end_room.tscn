@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://gqq83nof2cpa" path="res://GameProjectTextures/greywall.jpg" id="5_w8a03"]
 [ext_resource type="Texture2D" uid="uid://dnpu823cwlbdh" path="res://GameProjectTextures/yellow.jpg" id="6_uvnkd"]
 [ext_resource type="Texture2D" uid="uid://3biwtj2k442q" path="res://GameProjectTextures/RedxBeige.jpg" id="7_swkve"]
+[ext_resource type="PackedScene" uid="uid://2nya6r1o7uct" path="res://Models/overg_headlight.tscn" id="8_uvnkd"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8tavf"]
 albedo_color = Color(0, 0, 0, 1)
@@ -160,5 +161,18 @@ mesh = SubResource("BoxMesh_oxeyj")
 [node name="MeshInstance3D11" type="MeshInstance3D" parent="." unique_id=2066083742]
 transform = Transform3D(0.34, 0, 0, 0, 0.1330321, 0, 0, 0, 15.745, 3.4499998, 3.4993868, 0)
 mesh = SubResource("BoxMesh_oxeyj")
+
+[node name="overg_headlight" parent="." unique_id=729700010 instance=ExtResource("8_uvnkd")]
+transform = Transform3D(0.425, 0, 0, 0, 0.425, 0, 0, 0, 0.425, 0, 3.57, 5)
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="." unique_id=1335969985]
+transform = Transform3D(0.9973451, 0.009719142, 0.072168924, -0.07282043, 0.13311289, 0.9884221, 0, -0.9910532, 0.13346724, -0.015459418, 3.4285722, 5.1307554)
+light_energy = 14.224
+shadow_enabled = true
+shadow_normal_bias = 0.0
+shadow_caster_mask = 4294967293
+spot_range = 9.941
+spot_attenuation = 3.03
+spot_angle = 55.39
 
 [connection signal="body_entered" from="EndElevator/Area3D" to="EndElevator" method="_on_area_3d_body_entered"]

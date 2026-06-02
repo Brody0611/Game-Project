@@ -30,6 +30,9 @@ corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 
+[sub_resource type="LabelSettings" id="LabelSettings_u8hot"]
+font_size = 37
+
 [node name="ShopMenu" type="Control" unique_id=574277595]
 layout_mode = 3
 anchors_preset = 15
@@ -46,9 +49,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -127.0
+offset_left = -9.0
 offset_top = -86.0
-offset_right = 127.0
+offset_right = 273.0
 offset_bottom = 86.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -62,7 +65,7 @@ theme_override_font_sizes/font_size = 61
 theme_override_styles/normal = SubResource("StyleBoxFlat_rh1mo")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_u8hot")
 theme_override_styles/hover = SubResource("StyleBoxFlat_68nve")
-text = "Button"
+text = "Upgrades Level 1"
 
 [node name="Button2" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1039758508]
 layout_mode = 2
@@ -70,7 +73,102 @@ theme_override_font_sizes/font_size = 61
 theme_override_styles/normal = SubResource("StyleBoxFlat_rh1mo")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_xn0n2")
 theme_override_styles/hover = SubResource("StyleBoxFlat_68nve")
-text = "Button 2"
+text = "Upgrades Level 2"
+
+[node name="UpgradesVBox" type="VBoxContainer" parent="." unique_id=55720531]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -7.0
+offset_top = -86.0
+offset_right = 542.0
+offset_bottom = 86.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="UpgradesVBox" unique_id=1912980672]
+layout_mode = 2
+theme_override_font_sizes/font_size = 61
+theme_override_styles/normal = SubResource("StyleBoxFlat_rh1mo")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_u8hot")
+theme_override_styles/hover = SubResource("StyleBoxFlat_68nve")
+disabled = true
+text = "Running"
+
+[node name="Button2" type="Button" parent="UpgradesVBox" unique_id=880784844]
+layout_mode = 2
+theme_override_font_sizes/font_size = 61
+theme_override_styles/normal = SubResource("StyleBoxFlat_rh1mo")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xn0n2")
+theme_override_styles/hover = SubResource("StyleBoxFlat_68nve")
+disabled = true
+text = "Increase Inventory"
+
+[node name="Button3" type="Button" parent="UpgradesVBox" unique_id=1234095281]
+layout_mode = 2
+theme_override_font_sizes/font_size = 61
+theme_override_styles/normal = SubResource("StyleBoxFlat_rh1mo")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xn0n2")
+theme_override_styles/hover = SubResource("StyleBoxFlat_68nve")
+disabled = true
+text = "Back"
+
+[node name="UpgradesVBox2" type="VBoxContainer" parent="." unique_id=1423258022]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -7.0
+offset_top = -86.0
+offset_right = 542.0
+offset_bottom = 86.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="UpgradesVBox2" unique_id=2110489158]
+layout_mode = 2
+theme_override_font_sizes/font_size = 61
+theme_override_styles/normal = SubResource("StyleBoxFlat_rh1mo")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_u8hot")
+theme_override_styles/hover = SubResource("StyleBoxFlat_68nve")
+disabled = true
+text = "Even More Inventory"
+
+[node name="Button2" type="Button" parent="UpgradesVBox2" unique_id=928282859]
+layout_mode = 2
+theme_override_font_sizes/font_size = 61
+theme_override_styles/normal = SubResource("StyleBoxFlat_rh1mo")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xn0n2")
+theme_override_styles/hover = SubResource("StyleBoxFlat_68nve")
+disabled = true
+text = "Sneaky"
+
+[node name="Button3" type="Button" parent="UpgradesVBox2" unique_id=1756529482]
+layout_mode = 2
+theme_override_font_sizes/font_size = 61
+theme_override_styles/normal = SubResource("StyleBoxFlat_rh1mo")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xn0n2")
+theme_override_styles/hover = SubResource("StyleBoxFlat_68nve")
+disabled = true
+text = "Back"
+
+[node name="Label" type="Label" parent="." unique_id=1416554613]
+layout_mode = 0
+offset_left = 547.0
+offset_top = 117.0
+offset_right = 796.0
+offset_bottom = 168.0
+text = "Press E to exit"
+label_settings = SubResource("LabelSettings_u8hot")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Button" to="." method="_on_button1_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="UpgradesVBox/Button3" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="UpgradesVBox2/Button3" to="." method="_on_button_3_pressed"]
